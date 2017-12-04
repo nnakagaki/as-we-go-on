@@ -92,13 +92,15 @@
       autoCenter : true
     });
     $('.js-zoom-in').on('click', function() {
-      var newWidth = zoomWrap.width() + initWidth * 0.5;
-      var newHeight = zoomWrap.height() + initHeight * 0.5;
-      zoomWrap.css({ width: newWidth })
-      flipbook.turn('size', newWidth, newHeight);
+      if (zoomWrap.width() < initWidth * 2.7) {
+        var newWidth = zoomWrap.width() + initWidth * 0.5;
+        var newHeight = zoomWrap.height() + initHeight * 0.5;
+        zoomWrap.css({ width: newWidth })
+        flipbook.turn('size', newWidth, newHeight);
+      }
     });
     $('.js-zoom-out').on('click', function() {
-      if (zoomWrap.width() > 420) {
+      if (zoomWrap.width() > initWidth) {
         var newWidth = zoomWrap.width() - initWidth * 0.5;
         var newHeight = zoomWrap.height() - initHeight * 0.5;
         zoomWrap.css({ width: newWidth })
