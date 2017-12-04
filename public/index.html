@@ -18,7 +18,7 @@
       </span>
     </div>
     <div class="display-flex horizontal-center-flex-container margin-bottom-6">
-      <div id="js-zoom-wrap" class="margin-5" style="width:420;">
+      <div id="js-zoom-wrap" class="margin-5" style="width:840;">
         <div id="js-flipbook" class="flipbook">
           <div class="hard"> Turn.js </div>
           <div class="hard"></div>
@@ -86,8 +86,8 @@
 
     zoomWrap = $('#js-zoom-wrap');
     flipbook = $("#js-flipbook").turn({
-      width      : baseWidth,
-      height     : baseHeight,
+      width      : baseWidth * 2,
+      height     : baseHeight * 2,
       elevation  : 50,
       autoCenter : true
     });

@@ -4,15 +4,15 @@ body{
 }
 
 .flipbook{
-  width:420px;
-  height:297px;
+  width: 840px;
+  height: 594px;
 }
 
 .flipbook .page{
-  width:420px;
-  height:297px;
+  width: 840px;
+  height: 594px;
   background-color:white;
-  line-height:297px;
+  line-height: 594px;
   font-size:20px;
   text-align:center;
 }
