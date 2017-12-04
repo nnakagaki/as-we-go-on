@@ -2,32 +2,107 @@
   <head>
     <link rel="stylesheet" href="css/sample.css">
     <link rel="stylesheet" media="screen" href="//d14pr3cu5atb0x.cloudfront.net/pkg/css/chimera-1e92aa15dc.css">
+    <link rel="stylesheet" media="screen" href="//d14pr3cu5atb0x.cloudfront.net/pkg/css/icons-f9e2932681.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/vendor/turn.min.js"></script>
     <script type="text/javascript" src="js/vendor/zoom.min.js"></script>
   </head>
   <body class="overflow-auto">
-    <div class="h1 text-center margin-top-2 margin-bottom-6">Animoto yearbook 2017</div>
+    <div class="h1 text-center margin-top-2 margin-bottom-4">Animoto yearbook 2017</div>
+    <div class="display-flex horizontal-center-flex-container">
+      <span class="js-zoom-in ix-wrapper interface-button outline-none margin-right-3">
+        <span class="icon-plus icon-small"></span>
+      </span>
+      <span class="js-zoom-out ix-wrapper interface-button outline-none">
+        <span class="icon-minus icon-small"></span>
+      </span>
+    </div>
     <div class="display-flex horizontal-center-flex-container margin-bottom-6">
-      <div id="flipbook">
-        <div class="hard"> Turn.js </div>
-        <div class="hard"></div>
-        <div>
-          <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
+      <div id="js-zoom-wrap" class="margin-5" style="width:420;">
+        <div id="js-flipbook" class="flipbook">
+          <div class="hard"> Turn.js </div>
+          <div class="hard"></div>
+          <div>
+            <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
+          </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div> Page 2 </div>
+          <div> Page 3 </div>
+          <div> Page 4 </div>
+          <div class="hard"></div>
+          <div class="hard"></div>
         </div>
-        <div> Page 2 </div>
-        <div> Page 3 </div>
-        <div> Page 4 </div>
-        <div class="hard"></div>
-        <div class="hard"></div>
       </div>
     </div>
   </body>
   <script>
-    flipbook = $("#flipbook").turn({
-      width: 420,
-      height: 297,
-      autoCenter: true
+    initWidth = 420;
+    initHeight = 297;
+
+    zoomWrap = $('#js-zoom-wrap');
+    flipbook = $("#js-flipbook").turn({
+      width      : initWidth,
+      height     : initHeight,
+      elevation  : 50,
+      autoCenter : true
+    });
+    $('.js-zoom-in').on('click', function() {
+      var newWidth = zoomWrap.width() + initWidth * 0.5;
+      var newHeight = zoomWrap.height() + initHeight * 0.5;
+      zoomWrap.css({ width: newWidth })
+      flipbook.turn('size', newWidth, newHeight);
+    });
+    $('.js-zoom-out').on('click', function() {
+      if (zoomWrap.width() > 420) {
+        var newWidth = zoomWrap.width() - initWidth * 0.5;
+        var newHeight = zoomWrap.height() - initHeight * 0.5;
+        zoomWrap.css({ width: newWidth })
+        flipbook.turn('size', newWidth, newHeight);
+      }
     });
   </script>
 </html>
