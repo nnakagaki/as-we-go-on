@@ -18,7 +18,7 @@
       </span>
     </div>
     <div class="display-flex horizontal-center-flex-container margin-bottom-6">
-      <div id="js-zoom-wrap" class="margin-5" style="width:840;">
+      <div id="js-zoom-wrap" class="margin-5 transparent-background" style="width:840;">
         <div id="js-flipbook" class="flipbook">
           <div class="hard"> Turn.js </div>
           <div class="hard"></div>
@@ -114,5 +114,10 @@
         flipbook.turn('previous');
       }
     });
+    fullscreen = function() {
+      req = zoomWrap[0].requestFullScreen || zoomWrap[0].webkitRequestFullScreen || zoomWrap[0].mozRequestFullScreen;
+      req.call(zoomWrap[0]);
+    }
+
   </script>
 </html>
