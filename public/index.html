@@ -23,7 +23,7 @@
     <div class="display-flex horizontal-center-flex-container margin-bottom-6">
       <div id="js-zoom-wrap" class="margin-5 transparent-background" style="width:840;">
         <div id="js-flipbook" class="flipbook">
-          <div class="hard"> Turn.js </div>
+          <div class="hard"> Animoto: Class of 2017 </div>
           <div class="hard"></div>
           <div>
             <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
@@ -90,9 +90,14 @@
   <script>
     baseWidth = 420;
     baseHeight = 297;
+    currentWidth = baseWidth;
+    currentHeight = baseHeight;
+    isFullScreen = false;
 
     zoomWrap = $('#js-zoom-wrap');
-    flipbook = $("#js-flipbook").turn({
+    flipbook = $("#js-flipbook");
+
+    flipbook.turn({
       width      : baseWidth * 2,
       height     : baseHeight * 2,
       elevation  : 50,
@@ -123,8 +128,34 @@
     });
     $('.js-fullscreen').on('click', function() {
       req = zoomWrap[0].requestFullScreen || zoomWrap[0].webkitRequestFullScreen || zoomWrap[0].mozRequestFullScreen;
+
+      currentWidth = zoomWrap.width();
+      currentHeight = zoomWrap.height()
+
+      var newHeight = screen.height;
+      var ratio = screen.height / baseHeight;
+      var newWidth = baseWidth * ratio;
+
+      zoomWrap.css({ width: newWidth })
+      flipbook.turn('size', newWidth, newHeight);
+
       req.call(zoomWrap[0]);
     });
+
+    onFullscreenChangeHandler = function() {
+      if (isFullScreen) {
+        zoomWrap.css({ width: currentWidth })
+        flipbook.turn('size', currentWidth, currentHeight);
+        isFullScreen = false;
+      } else {
+        isFullScreen = true;
+      }
+    }
+
+    document.addEventListener("fullscreenchange", onFullscreenChangeHandler);
+    document.addEventListener("webkitfullscreenchange", onFullscreenChangeHandler);
+    document.addEventListener("mozfullscreenchange", onFullscreenChangeHandler);
+    document.addEventListener("MSFullscreenChange", onFullscreenChangeHandler);
 
   </script>
 </html>
