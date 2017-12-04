@@ -9,6 +9,9 @@
   </head>
   <body class="overflow-auto">
     <div class="h1 text-center margin-top-2 margin-bottom-4">Animoto yearbook 2017</div>
+    <div class="text-center margin-bottom-3">
+      <button class="js-fullscreen button">MAKE IT FULLSCREEN BECUASE IT WILL BE SO AWESOME</button>
+    </div>
     <div class="display-flex horizontal-center-flex-container">
       <span class="js-zoom-in ix-wrapper interface-button outline-none margin-right-3">
         <span class="icon-plus icon-small"></span>
@@ -118,10 +121,10 @@
         flipbook.turn('previous');
       }
     });
-    fullscreen = function() {
+    $('.js-fullscreen').on('click', function() {
       req = zoomWrap[0].requestFullScreen || zoomWrap[0].webkitRequestFullScreen || zoomWrap[0].mozRequestFullScreen;
       req.call(zoomWrap[0]);
-    }
+    });
 
   </script>
 </html>
