@@ -73,6 +73,7 @@
           <div> Page 2 </div>
           <div> Page 3 </div>
           <div> Page 4 </div>
+          <div> Page 4 </div>
           <div class="hard"></div>
           <div class="hard"></div>
         </div>
@@ -102,6 +103,13 @@
         var newHeight = zoomWrap.height() - initHeight * 0.5;
         zoomWrap.css({ width: newWidth })
         flipbook.turn('size', newWidth, newHeight);
+      }
+    });
+    $(document).on('keyup', function(e) {
+      if (e.which === 39) {
+        flipbook.turn('next');
+      } else if (e.which === 37) {
+        flipbook.turn('previous');
       }
     });
   </script>
