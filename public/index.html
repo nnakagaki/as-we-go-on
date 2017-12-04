@@ -1,26 +1,32 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/sample.css">
+    <link rel="stylesheet" media="screen" href="//d14pr3cu5atb0x.cloudfront.net/pkg/css/chimera-1e92aa15dc.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/vendor/turn.min.js"></script>
     <script type="text/javascript" src="js/vendor/zoom.min.js"></script>
   </head>
-  <body>
-    <div id="flipbook">
-      <div class="hard"> Turn.js </div>
-      <div class="hard"></div>
-      <div> Page 1 </div>
-      <div> Page 2 </div>
-      <div> Page 3 </div>
-      <div> Page 4 </div>
-      <div class="hard"></div>
-      <div class="hard"></div>
+  <body class="overflow-auto">
+    <div class="h1 text-center margin-top-2 margin-bottom-6">Animoto yearbook 2017</div>
+    <div class="display-flex horizontal-center-flex-container margin-bottom-6">
+      <div id="flipbook">
+        <div class="hard"> Turn.js </div>
+        <div class="hard"></div>
+        <div>
+          <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
+        </div>
+        <div> Page 2 </div>
+        <div> Page 3 </div>
+        <div> Page 4 </div>
+        <div class="hard"></div>
+        <div class="hard"></div>
+      </div>
     </div>
   </body>
   <script>
-    $("#flipbook").turn({
-      width: 400,
-      height: 300,
+    flipbook = $("#flipbook").turn({
+      width: 420,
+      height: 297,
       autoCenter: true
     });
   </script>
