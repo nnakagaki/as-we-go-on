@@ -1,6 +1,6 @@
 <html>
   <head>
-    <meta name="google-signin-client_id" content="<%= googleClientId %>.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="<%= googleClientId %>">
     <link rel="stylesheet" href="css/sample.css">
     <link rel="stylesheet" media="screen" href="//d14pr3cu5atb0x.cloudfront.net/pkg/css/chimera-1e92aa15dc.css">
     <link rel="stylesheet" media="screen" href="//d14pr3cu5atb0x.cloudfront.net/pkg/css/icons-f9e2932681.css">
@@ -11,83 +11,104 @@
     <script type="text/javascript" src="js/vendor/zoom.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
-  <body class="overflow-auto">
-    <div class="h2 text-center margin-top-2 margin-bottom-4">
-      <span class="logo logo-color logo-text gh-logo-img"></span>
-    </div>
-    <div class="text-center margin-bottom-5">
-      <button class="js-fullscreen button">FULLLLSCREAAAAYYYYN</button>
-    </div>
-    <div class="display-flex horizontal-center-flex-container">
-      <div id="js-zoom-wrap" class="flipbook-wrap transparent-background">
-        <div id="js-flipbook" class="flipbook">
-          <div class="hard own-size"> Animoto: Class of 2017 </div>
-          <div class="hard front-side own-size"><div class="depth"></div></div>
-          <div>
-            <div class="gradient"></div>
-            <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
-          </div>
-          <div>
-            <div class="gradient"></div>
-            <img class="full-height full-width" src="images/test_1.jpg" />
-          </div>
-          <div>
-            <div class="gradient"></div>
-            <img class="full-height full-width" src="images/test_2.jpg" />
-          </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 2 </div>
-          <div> Page 3 </div>
-          <div> Page 4 </div>
-          <div> Page 4 </div>
-          <div class="hard fixed back-side own-size"><div class="depth"></div></div>
-          <div class="hard own-size"></div>
-        </div>
+  <body class="container-fluid no-overflow">
+    <div class="js-sidebar yearbook-index-sidebar hide-when-sm hide-when-md hide-when-lg col-xlg-2 full-height overflow-auto inverted">
+      <div class="h3">Table of contents</div>
+      <div>
+        <a class="js-go-to-page link-inverted" data-page="3">Cat</a>
+      </div>
+      <div>
+        <a class="js-go-to-page link-inverted" data-page="4">Wave</a>
+      </div>
+      <div>
+        <a class="js-go-to-page link-inverted" data-page="12">Something</a>
       </div>
     </div>
-    <div id="js-slider" class="page-slider margin-bottom-6 margin-top-4"></div>
+    <div class="js-main col-sm-12 col-xlg-10 full-height overflow-auto">
+      <div class="h2 text-center margin-top-2 margin-bottom-4">
+        <span class="logo logo-color logo-text gh-logo-img"></span>
+      </div>
+      <div class="js-google-signin google-signin">
+        <div class="js-google-signin-button g-signin2" data-onsuccess="onSignIn"></div>
+      </div>
+      <div class="text-center margin-bottom-5">
+        <button class="js-fullscreen button">FULLLLSCREAAAAYYYYN</button>
+      </div>
+      <div class="display-flex horizontal-center-flex-container">
+        <div id="js-zoom-wrap" class="flipbook-wrap transparent-background">
+          <div id="js-flipbook" class="flipbook">
+            <div class="hard own-size"> Animoto: Class of 2017 </div>
+            <div class="hard front-side own-size"><div class="depth"></div></div>
+            <div>
+              <div class="gradient"></div>
+              <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
+            </div>
+            <div>
+              <div class="gradient"></div>
+              <img class="full-height full-width" src="images/test_1.jpg" />
+            </div>
+            <div>
+              <div class="gradient"></div>
+              <img class="full-height full-width" src="images/test_2.jpg" />
+            </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 2 </div>
+            <div> Page 3 </div>
+            <div> Page 4 </div>
+            <div> Page 4 </div>
+            <div class="hard fixed back-side own-size"><div class="depth"></div></div>
+            <div class="hard own-size"></div>
+          </div>
+        </div>
+      </div><div id="js-slider" class="page-slider margin-top-4 margin-bottom-6">
+      </div>
+      <div class="pull-right">
+        <a href="//www.iubenda.com/privacy-policy/8279875" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+        <script type="text/javascript">(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
+      </div>
+    </div>
   </body>
   <script>
     baseWidth = 420;
@@ -195,5 +216,19 @@
     document.addEventListener('mozfullscreenchange', onFullscreenChangeHandler);
     document.addEventListener('MSFullscreenChange', onFullscreenChangeHandler);
 
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      $('.js-google-signin').append('<img class="google-signed-in-image" src="' + profile.getImageUrl() + '" />')
+      $('.js-google-signin-button').addClass('is-hidden');
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    }
+
+    $('.js-go-to-page').on('click', function(e) {
+      var page = $(e.currentTarget).data('page');
+      flipbook.turn('page', page);
+    })
   </script>
 </html>

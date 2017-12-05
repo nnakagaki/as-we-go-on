@@ -3,14 +3,10 @@ body{
   overflow:hidden;
 }
 
-.flipbook-wrap {
-  margin-left: -20px;
-}
 
 .flipbook{
   width: 880px;
   height: 614px;
-  margin-left: -20px;
 }
 
 .flipbook .page{
@@ -104,7 +100,6 @@ body{
   margin: auto;
 }
 
-
 .flipbook .depth{
   background-image:url(../images/pages-depth.png);
   position:absolute;
@@ -123,4 +118,22 @@ body{
 .flipbook .back-side .depth{
   right:4px;
   background-position:right 0;
+}
+
+.google-signin {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.google-signed-in-image {
+  height: 36px;
+}
+
+.yearbook-index-sidebar {
+  background: #282828;
+}
+
+.no-overflow {
+  overflow: hidden;
 }
