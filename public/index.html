@@ -22,9 +22,9 @@
         <span class="icon-minus icon-small"></span>
       </span>
     </div>
-    <div id="js-slider" class="page-slider margin-top-2" style="width:420;"></div>
+    <div id="js-slider" class="page-slider margin-top-2"></div>
     <div class="display-flex horizontal-center-flex-container margin-bottom-6">
-      <div id="js-zoom-wrap" class="margin-5 transparent-background" style="width:840;">
+      <div id="js-zoom-wrap" class="margin-2 transparent-background">
         <div id="js-flipbook" class="flipbook">
           <div class="hard"> Animoto: Class of 2017 </div>
           <div class="hard"></div>
@@ -99,6 +99,10 @@
 
     zoomWrap = $('#js-zoom-wrap');
     flipbook = $("#js-flipbook");
+    slider = $('#js-slider');
+
+    zoomWrap.css({ width : baseWidth * 2 });
+    slider.css({ width : baseWidth });
 
     flipbook.turn({
       width      : baseWidth * 2,
@@ -109,7 +113,7 @@
 
     maxPages = flipbook.turn("pages")
 
-    slider = $('#js-slider').slider({
+    slider.slider({
       min    : 1,
       max    : maxPages,
       change : function(e, ui) {
