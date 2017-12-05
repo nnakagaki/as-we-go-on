@@ -121,11 +121,9 @@
     baseOuterHeight = 307;
     baseInnerWidth = 420;
     baseInnerHeight = 297;
-    currentOuterWidth = baseOuterWidth;
-    currentOuterHeight = baseOuterHeight;
-    currentInnerWidth = baseInnerWidth;
-    currentInnerHeight = baseInnerHeight;
     isFullScreen = false;
+    currentOuterWidth = baseOuterWidth * 2;
+    currentOuterHeight = baseOuterHeight * 2;
 
     zoomWrap = $('#js-zoom-wrap');
     flipbook = $("#js-flipbook");
@@ -172,6 +170,26 @@
       slider.slider('value', page);
     });
 
+    flipbook.on('start', function(event, page, view) {
+      if (isFullScreen) {
+        var newHeight = screen.height;
+        var outerRatio = screen.height / currentOuterHeight;
+        var newOuterWidth = (currentOuterWidth) * outerRatio;
+        var innerRatio = screen.height / baseInnerHeight;
+        var newInnerWidth = baseInnerWidth * innerRatio;
+        var newInnerHeight = baseInnerHeight * innerRatio;
+        $('.own-size').css({
+          width  : newInnerWidth / 2 - 20,
+          height : newInnerHeight - 20
+        });
+        $('.depth').css({
+          height : newHeight - 10,
+          width  : 25
+        });
+        flipbook.turn('size', newOuterWidth, newHeight);
+      }
+    });
+
     $('.js-zoom-in').on('click', function() {
       if (zoomWrap.width() < baseOuterWidth * 2.7) {
         var newWidth = zoomWrap.width() + baseOuterWidth * 0.5;
@@ -198,16 +216,24 @@
     $('.js-fullscreen').on('click', function() {
       req = zoomWrap[0].requestFullScreen || zoomWrap[0].webkitRequestFullScreen || zoomWrap[0].mozRequestFullScreen;
 
-      currentWidth = zoomWrap.width();
-      currentHeight = zoomWrap.height()
+      currentOuterWidth = zoomWrap.width();
+      currentOuterHeight = zoomWrap.height();
 
       var newHeight = screen.height;
-      var outerRatio = screen.height / baseOuterHeight;
-      var newOuterWidth = baseOuterWidth * outerRatio;
+      var outerRatio = screen.height / currentOuterHeight;
+      var newOuterWidth = (currentOuterWidth) * outerRatio;
       var innerRatio = screen.height / baseInnerHeight;
       var newInnerWidth = baseInnerWidth * innerRatio;
+      var newInnerHeight = baseInnerHeight * innerRatio;
+      $('.own-size').css({
+        width  : newInnerWidth / 2 - 20,
+        height : newInnerHeight - 20
+      });
+      $('.depth').css({
+        height : newHeight - 10,
+        width  : 25
+      });
       zoomWrap.css({ width: newOuterWidth });
-      $('.own-size').css({ width: newInnerWidth });
       flipbook.turn('size', newOuterWidth, newHeight);
 
       req.call(zoomWrap[0]);
@@ -215,8 +241,16 @@
 
     onFullscreenChangeHandler = function() {
       if (isFullScreen) {
-        zoomWrap.css({ width : currentWidth })
-        flipbook.turn('size', currentWidth, currentHeight);
+        zoomWrap.css({ width : currentOuterWidth });
+        $('.own-size').css({
+          width  : baseInnerWidth,
+          height : baseInnerHeight * 2
+        });
+        $('.depth').css({
+          height : 604,
+          width  : 16
+        })
+        flipbook.turn('size', currentOuterWidth, currentOuterHeight);
         isFullScreen = false;
       } else {
         isFullScreen = true;
