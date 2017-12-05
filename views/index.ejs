@@ -10,6 +10,8 @@
     <script type="text/javascript" src="js/vendor/turn.min.js"></script>
     <script type="text/javascript" src="js/vendor/zoom.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/vendor/paper-full.min.js"></script>
+    <script type="text/javascript" src="js/vendor/FileSaver.min.js"></script>
   </head>
   <body class="container-fluid no-overflow">
     <div class="js-sidebar yearbook-index-sidebar hide-when-sm hide-when-md hide-when-lg col-xlg-2 full-height overflow-auto inverted">
@@ -33,9 +35,13 @@
       </div>
       <div class="text-center margin-bottom-5">
         <button class="js-fullscreen button">FULLLLSCREAAAAYYYYN</button>
+        <button class="js-draw button">DRAWWWWWW</button>
+        <button class="js-flip button is-hidden">FLIPPPPPP</button>
       </div>
       <div class="display-flex horizontal-center-flex-container">
-        <div id="js-zoom-wrap" class="flipbook-wrap transparent-background">
+        <div id="js-zoom-wrap" class="flipbook-wrap transparent-background make-relative">
+          <canvas id="myCanvas1" class="drawing-canvas-1 is-hidden" height="594" width="420"></canvas>
+          <canvas id="myCanvas2" class="drawing-canvas-2 is-hidden" height="594" width="420"></canvas>
           <div id="js-flipbook" class="flipbook">
             <div class="hard"> Animoto: Class of 2017 </div>
             <div class="hard front-side"><div class="depth"></div></div>
@@ -232,9 +238,39 @@
       console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     }
 
+    $('.js-draw').on('click', function() {
+      $('#myCanvas1').removeClass('is-hidden');
+      $('#myCanvas2').removeClass('is-hidden');
+      $('.js-flip').removeClass('is-hidden');
+      $('.js-draw').addClass('is-hidden');
+    });
+
+    $('.js-flip').on('click', function() {
+      $('#myCanvas1').addClass('is-hidden');
+      $('#myCanvas2').addClass('is-hidden');
+      $('.js-flip').addClass('is-hidden');
+      $('.js-draw').removeClass('is-hidden');
+    });
+
     $('.js-go-to-page').on('click', function(e) {
       var page = $(e.currentTarget).data('page');
       flipbook.turn('page', page);
     })
+
+    saveLeft = function() {
+      var canvas = document.getElementById("myCanvas1");
+      canvas.toBlob(function(blob) {
+        saveAs(blob, "lol.png");
+      });
+    }
+
+    saveRight = function() {
+      var canvas = document.getElementById("myCanvas2");
+      canvas.toBlob(function(blob) {
+        saveAs(blob, "pretty image.png");
+      });
+    }
   </script>
+  <script type="text/paperscript" src="js/canvas.js" canvas="myCanvas1"></script>
+  <script type="text/paperscript" src="js/canvas.js" canvas="myCanvas2"></script>
 </html>

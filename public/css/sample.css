@@ -141,3 +141,21 @@ body{
 .no-overflow {
   overflow: hidden;
 }
+
+.drawing-canvas-1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 420px;
+  left: 0;
+  z-index: 1;
+}
+
+.drawing-canvas-2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 420px;
+  z-index: 1;
+}
