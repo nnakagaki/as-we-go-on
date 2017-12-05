@@ -102,3 +102,7 @@ body{
   top: 8px;
   right: 8px;
 }
+
+.google-signed-in-image {
+  height: 36px;
+}
