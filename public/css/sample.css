@@ -17,6 +17,10 @@ body{
   text-align:center;
 }
 
+.flipbook .page.own-size {
+  width: 400px;
+}
+
 .flipbook .page-wrapper{
   -webkit-perspective:2000px;
   -moz-perspective:2000px;
@@ -95,4 +99,23 @@ body{
 .page-slider {
   width: 420;
   margin: auto;
+}
+
+
+.flipbook .depth{
+  background-image:url(http://www.turnjs.com/samples/steve-jobs/pics/pages-depth.png);
+  position:absolute;
+  top:7px;
+  width:16px;
+  height:590px;
+}
+
+.flipbook .front-side .depth{
+  left:4px;
+  background-position:0 0;
+}
+
+.flipbook .back-side .depth{
+  right:4px;
+  background-position:right 0;
 }
