@@ -31,14 +31,14 @@
       <div class="js-google-signin google-signin">
         <div class="js-google-signin-button g-signin2" data-onsuccess="onSignIn"></div>
       </div>
-      <div class="text-center margin-bottom-2">
+      <div class="text-center margin-bottom-5">
         <button class="js-fullscreen button">FULLLLSCREAAAAYYYYN</button>
       </div>
       <div class="display-flex horizontal-center-flex-container">
-        <div id="js-zoom-wrap" class="margin-2 transparent-background">
+        <div id="js-zoom-wrap" class="flipbook-wrap transparent-background">
           <div id="js-flipbook" class="flipbook">
-            <div class="hard"> Animoto: Class of 2017 </div>
-            <div class="hard"></div>
+            <div class="hard own-size"> Animoto: Class of 2017 </div>
+            <div class="hard front-side own-size"><div class="depth"></div></div>
             <div>
               <div class="gradient"></div>
               <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
@@ -98,14 +98,15 @@
             <div> Page 3 </div>
             <div> Page 4 </div>
             <div> Page 4 </div>
-            <div class="hard"></div>
-            <div class="hard"></div>
+            <div class="hard fixed back-side own-size"><div class="depth"></div></div>
+            <div class="hard own-size"></div>
           </div>
         </div>
+      </div><div id="js-slider" class="page-slider margin-top-4 margin-bottom-6">
       </div>
-      <div id="js-slider" class="page-slider margin-bottom-6"></div>
       <div class="pull-right">
-        <a href="//www.iubenda.com/privacy-policy/8279875" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+        <a href="//www.iubenda.com/privacy-policy/8279875" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+        <script type="text/javascript">(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
       </div>
     </div>
   </body>
@@ -127,7 +128,24 @@
       width      : baseWidth * 2,
       height     : baseHeight * 2,
       elevation  : 50,
-      autoCenter : true
+      autoCenter : true,
+      when: {
+        turning: function (e, page, view) {
+          var book = $(this)
+          if (page >= 2) {
+            $('.hard.front-side').addClass('fixed');
+          }
+          else {
+            $('.hard.front-side').removeClass('fixed');
+          }
+          if (page < book.turn('pages')) {
+            $('.hard.back-side').addClass('fixed');
+          }
+          else {
+            $('.hard.back-side').removeClass('fixed');
+          }
+        }
+      }
     });
 
     maxPages = flipbook.turn("pages")

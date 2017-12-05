@@ -3,16 +3,17 @@ body{
   overflow:hidden;
 }
 
+
 .flipbook{
-  width: 840px;
-  height: 594px;
+  width: 880px;
+  height: 614px;
 }
 
 .flipbook .page{
   width: 840px;
   height: 594px;
   background-color:white;
-  line-height: 594px;
+  line-height: 614px;
   font-size:20px;
   text-align:center;
 }
@@ -34,6 +35,8 @@ body{
   -ms-box-shadow:inset 0 0 5px #666;
   box-shadow:inset 0 0 5px #666;
   font-weight:bold;
+  width: 440px;
+  height: 614px;
 }
 
 .flipbook .odd{
@@ -95,6 +98,26 @@ body{
 .page-slider {
   width: 420;
   margin: auto;
+}
+
+.flipbook .depth{
+  background-image:url(../images/pages-depth.png);
+  position:absolute;
+  top:7px;
+  bottom: 7px;
+  width:16px;
+  height:604px;
+  background-size: cover;
+}
+
+.flipbook .front-side .depth{
+  left:4px;
+  background-position:0 0;
+}
+
+.flipbook .back-side .depth{
+  right:4px;
+  background-position:right 0;
 }
 
 .google-signin {
