@@ -8,7 +8,7 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.render('index', {
-    googleClientId : process.env.GOOGLE_CLIENT_ID
+    googleClientId : process.env.GOOGLE_CLIENT_ID || 'wontwork'
   });
 });
 
