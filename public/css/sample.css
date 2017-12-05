@@ -106,3 +106,11 @@ body{
 .google-signed-in-image {
   height: 36px;
 }
+
+.yearbook-index-sidebar {
+  background: #282828;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
