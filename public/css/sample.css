@@ -3,22 +3,23 @@ body{
   overflow:hidden;
 }
 
+.flipbook-wrap {
+  margin-left: -20px;
+}
+
 .flipbook{
-  width: 840px;
-  height: 594px;
+  width: 880px;
+  height: 614px;
+  margin-left: -20px;
 }
 
 .flipbook .page{
   width: 840px;
   height: 594px;
   background-color:white;
-  line-height: 594px;
+  line-height: 614px;
   font-size:20px;
   text-align:center;
-}
-
-.flipbook .page.own-size {
-  width: 400px;
 }
 
 .flipbook .page-wrapper{
@@ -38,6 +39,8 @@ body{
   -ms-box-shadow:inset 0 0 5px #666;
   box-shadow:inset 0 0 5px #666;
   font-weight:bold;
+  width: 440px;
+  height: 614px;
 }
 
 .flipbook .odd{
@@ -103,11 +106,13 @@ body{
 
 
 .flipbook .depth{
-  background-image:url(http://www.turnjs.com/samples/steve-jobs/pics/pages-depth.png);
+  background-image:url(../images/pages-depth.png);
   position:absolute;
   top:7px;
+  bottom: 7px;
   width:16px;
-  height:590px;
+  height:604px;
+  background-size: cover;
 }
 
 .flipbook .front-side .depth{
