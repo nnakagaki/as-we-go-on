@@ -15,7 +15,9 @@
     <div class="h2 text-center margin-top-2 margin-bottom-4">
       <span class="logo logo-color logo-text gh-logo-img"></span>
     </div>
-    <div class="g-signin2 google-signin" data-onsuccess="onSignIn"></div>
+    <div class="js-google-signin google-signin">
+      <div class="js-google-signin-button g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
     <div class="text-center margin-bottom-2">
       <button class="js-fullscreen button">FULLLLSCREAAAAYYYYN</button>
     </div>
@@ -184,6 +186,8 @@
 
     function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
+      $('.js-google-signin').append('<img src="' + profile.getImageUrl() + '" />')
+      $('.js-google-signin-button').addClass('is-hidden');
       console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
       console.log('Name: ' + profile.getName());
       console.log('Image URL: ' + profile.getImageUrl());
