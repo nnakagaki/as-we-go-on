@@ -6,6 +6,7 @@
     "npm": ">=1.3.x"
   },
   "dependencies": {
+    "ejs": "^2.5.7",
     "express": "^4.16.2"
   }
 }
