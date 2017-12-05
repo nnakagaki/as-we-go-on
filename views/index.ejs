@@ -37,69 +37,69 @@
       <div class="display-flex horizontal-center-flex-container">
         <div id="js-zoom-wrap" class="flipbook-wrap transparent-background">
           <div id="js-flipbook" class="flipbook">
-            <div class="hard own-size"> Animoto: Class of 2017 </div>
-            <div class="hard front-side own-size"><div class="depth"></div></div>
-            <div>
+            <div class="hard"> Animoto: Class of 2017 </div>
+            <div class="hard front-side"><div class="depth"></div></div>
+            <div class="own-size">
               <div class="gradient"></div>
               <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
             </div>
-            <div>
+            <div class="own-size">
               <div class="gradient"></div>
               <img class="full-height full-width" src="images/test_1.jpg" />
             </div>
-            <div>
+            <div class="own-size">
               <div class="gradient"></div>
               <img class="full-height full-width" src="images/test_2.jpg" />
             </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 2 </div>
-            <div> Page 3 </div>
-            <div> Page 4 </div>
-            <div> Page 4 </div>
-            <div class="hard fixed back-side own-size"><div class="depth"></div></div>
-            <div class="hard own-size"></div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 2 </div>
+            <div class="own-size"> Page 3 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="own-size"> Page 4 </div>
+            <div class="hard fixed back-side"><div class="depth"></div></div>
+            <div class="hard"></div>
           </div>
         </div>
       </div><div id="js-slider" class="page-slider margin-top-4 margin-bottom-6">
@@ -111,22 +111,26 @@
     </div>
   </body>
   <script>
-    baseWidth = 420;
-    baseHeight = 297;
-    currentWidth = baseWidth;
-    currentHeight = baseHeight;
+    baseOuterWidth = 440;
+    baseOuterHeight = 307;
+    baseInnerWidth = 420;
+    baseInnerHeight = 297;
+    currentOuterWidth = baseOuterWidth;
+    currentOuterHeight = baseOuterHeight;
+    currentInnerWidth = baseInnerWidth;
+    currentInnerHeight = baseInnerHeight;
     isFullScreen = false;
 
     zoomWrap = $('#js-zoom-wrap');
     flipbook = $("#js-flipbook");
     slider = $('#js-slider');
 
-    zoomWrap.css({ width : baseWidth * 2 });
-    slider.css({ width : baseWidth });
+    zoomWrap.css({ width : baseOuterWidth * 2 });
+    slider.css({ width : baseOuterWidth });
 
     flipbook.turn({
-      width      : baseWidth * 2,
-      height     : baseHeight * 2,
+      width      : baseOuterWidth * 2,
+      height     : baseOuterHeight * 2,
       elevation  : 50,
       autoCenter : true,
       when: {
@@ -163,17 +167,17 @@
     });
 
     $('.js-zoom-in').on('click', function() {
-      if (zoomWrap.width() < baseWidth * 2.7) {
-        var newWidth = zoomWrap.width() + baseWidth * 0.5;
-        var newHeight = zoomWrap.height() + baseHeight * 0.5;
+      if (zoomWrap.width() < baseOuterWidth * 2.7) {
+        var newWidth = zoomWrap.width() + baseOuterWidth * 0.5;
+        var newHeight = zoomWrap.height() + baseOuterHeight * 0.5;
         zoomWrap.css({ width : newWidth })
         flipbook.turn('size', newWidth, newHeight);
       }
     });
     $('.js-zoom-out').on('click', function() {
-      if (zoomWrap.width() > baseWidth) {
-        var newWidth = zoomWrap.width() - baseWidth * 0.5;
-        var newHeight = zoomWrap.height() - baseHeight * 0.5;
+      if (zoomWrap.width() > baseOuterWidth) {
+        var newWidth = zoomWrap.width() - baseOuterWidth * 0.5;
+        var newHeight = zoomWrap.height() - baseOuterHeight * 0.5;
         zoomWrap.css({ width : newWidth })
         flipbook.turn('size', newWidth, newHeight);
       }
@@ -192,11 +196,13 @@
       currentHeight = zoomWrap.height()
 
       var newHeight = screen.height;
-      var ratio = screen.height / baseHeight;
-      var newWidth = baseWidth * ratio;
-
-      zoomWrap.css({ width: newWidth })
-      flipbook.turn('size', newWidth, newHeight);
+      var outerRatio = screen.height / baseOuterHeight;
+      var newOuterWidth = baseOuterWidth * outerRatio;
+      var innerRatio = screen.height / baseInnerHeight;
+      var newInnerWidth = baseInnerWidth * innerRatio;
+      zoomWrap.css({ width: newOuterWidth });
+      $('.own-size').css({ width: newInnerWidth });
+      flipbook.turn('size', newOuterWidth, newHeight);
 
       req.call(zoomWrap[0]);
     });

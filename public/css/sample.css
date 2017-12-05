@@ -3,19 +3,23 @@ body{
   overflow:hidden;
 }
 
-
 .flipbook{
   width: 880px;
   height: 614px;
 }
 
 .flipbook .page{
-  width: 840px;
-  height: 594px;
+  width: 880px;
+  height: 614px;
   background-color:white;
   line-height: 614px;
   font-size:20px;
   text-align:center;
+}
+
+.flipbook .own-size {
+  width: 420px;
+  height: 594px;
 }
 
 .flipbook .page-wrapper{
