@@ -96,3 +96,9 @@ body{
   width: 420;
   margin: auto;
 }
+
+.google-signin {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
