@@ -13,20 +13,22 @@
     <script type="text/javascript" src="js/vendor/paper-full.min.js"></script>
     <script type="text/javascript" src="js/vendor/FileSaver.min.js"></script>
   </head>
-  <body class="container-fluid no-overflow">
-    <div class="js-sidebar yearbook-index-sidebar hide-when-sm hide-when-md hide-when-lg col-xlg-2 full-height overflow-auto inverted">
-      <div class="h3">Table of contents</div>
+  <body class="container-fluid no-overflow white-background">
+    <div class="js-sidebar yearbook-index-sidebar full-height overflow-auto inverted">
+      <div class="js-toggle-sidebar cursor-pointer close-sidebar">x</div>
+      <div class="h4 label margin-bottom-2">Table of contents</div>
       <div>
-        <a class="js-go-to-page link-inverted" data-page="3">Cat</a>
+        <a class="js-go-to-page" data-page="3">I. Cat</a>
       </div>
       <div>
-        <a class="js-go-to-page link-inverted" data-page="4">Wave</a>
+        <a class="js-go-to-page" data-page="4">II. Wave</a>
       </div>
       <div>
-        <a class="js-go-to-page link-inverted" data-page="12">Something</a>
+        <a class="js-go-to-page" data-page="12">III. Something</a>
       </div>
     </div>
-    <div class="js-main col-sm-12 col-xlg-10 full-height overflow-auto">
+    <div class="js-main full-height overflow-auto">
+      <div class="js-toggle-sidebar hamburger cursor-pointer"></div>
       <div class="h2 text-center margin-top-2 margin-bottom-4">
         <span class="logo logo-color logo-text gh-logo-img"></span>
       </div>
@@ -34,9 +36,9 @@
         <div class="js-google-signin-button g-signin2" data-onsuccess="onSignIn"></div>
       </div>
       <div class="text-center margin-bottom-5">
-        <button class="js-fullscreen button">FULLLLSCREAAAAYYYYN</button>
-        <button class="js-draw button">DRAWWWWWW</button>
-        <button class="js-flip button is-hidden">FLIPPPPPP</button>
+        <button class="js-fullscreen button">FULLSCREEN</button>
+        <button class="js-draw button">DRAW</button>
+        <button class="js-flip button is-hidden">STOP DRAWING</button>
       </div>
       <div class="display-flex horizontal-center-flex-container">
         <div id="js-zoom-wrap" class="flipbook-wrap transparent-background make-relative">
@@ -270,6 +272,11 @@
         saveAs(blob, "pretty image.png");
       });
     }
+
+    $('.js-toggle-sidebar').on('click', function() {
+      $('.yearbook-index-sidebar').toggleClass('open');
+    });
+
   </script>
   <script type="text/paperscript" src="js/canvas.js" canvas="myCanvas1"></script>
   <script type="text/paperscript" src="js/canvas.js" canvas="myCanvas2"></script>

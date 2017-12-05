@@ -134,8 +134,37 @@ body{
   height: 36px;
 }
 
+.hamburger {
+  position: absolute;
+  right: 24px;
+  top: 20px;
+}
+
+.close-sidebar {
+  right: 32px;
+  top: 20px;
+  position: absolute;
+  font-size: 30px;
+}
+
 .yearbook-index-sidebar {
-  background: #282828;
+  background: rgba(0,140,149, .9);
+  border-left: solid 1px #dadada;
+  padding: 24px;
+  position: absolute;
+  z-index: 2;
+  width: 400px;
+  right: -400px;
+  -webkit-transition: right .2s ease;
+  -moz-transition: right .2s ease;
+  transition: right .2s ease;
+}
+
+.yearbook-index-sidebar.open {
+  right: 0;
+  -webkit-transition: right .2s ease;
+  -moz-transition: right .2s ease;
+  transition: right .2s ease;
 }
 
 .no-overflow {
