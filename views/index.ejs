@@ -273,6 +273,7 @@
     }
 
     $('.js-draw').on('click', function() {
+      flipbook.turn('disable', true);
       $('#myCanvas1').removeClass('is-hidden');
       $('#myCanvas2').removeClass('is-hidden');
       $('.js-flip').removeClass('is-hidden');
@@ -280,6 +281,7 @@
     });
 
     $('.js-flip').on('click', function() {
+      flipbook.turn('disable', false);
       $('#myCanvas1').addClass('is-hidden');
       $('#myCanvas2').addClass('is-hidden');
       $('.js-flip').addClass('is-hidden');

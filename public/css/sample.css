@@ -144,18 +144,18 @@ body{
 
 .drawing-canvas-1 {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 420px;
-  left: 0;
+  top: 10px;
+  bottom: -10px;
+  right: 440px;
+  left: 20px;
   z-index: 1;
 }
 
 .drawing-canvas-2 {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 420px;
+  top: 10px;
+  bottom: -10px;
+  right: 20px;
+  left: 440px;
   z-index: 1;
 }
