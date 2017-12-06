@@ -172,21 +172,7 @@ mainObject = {
     $('.js-go-to-page').on('click', function(e) {
       var page = $(e.currentTarget).data('page');
       flipbook.turn('page', page);
-    })
-
-    saveLeft = function() {
-      var canvas = document.getElementById("js-left-canvas");
-      canvas.toBlob(function(blob) {
-        saveAs(blob, "lol.png");
-      });
-    }
-
-    saveRight = function() {
-      var canvas = document.getElementById("js-right-canvas");
-      canvas.toBlob(function(blob) {
-        saveAs(blob, "pretty image.png");
-      });
-    }
+    });
 
     $('.js-toggle-sidebar').on('click', function() {
       $('.yearbook-index-sidebar').toggleClass('open');
