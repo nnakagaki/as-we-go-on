@@ -87,7 +87,7 @@
     $.ajax({
       url     : '/strokes',
       success : function(res) {
-        var allStrokes = res;
+        allStrokes = res;
 
         for (var i = 2; i < $('#js-flipbook').children().length - 2; i++) {
           utils.addStrokesToPageCanvas(i);
