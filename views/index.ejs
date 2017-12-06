@@ -85,6 +85,9 @@
   </body>
   <script>
     ws = new WebSocket('wss://' + window.location.host);
+    ws.onerror = function() {
+      console.log('websockets error');
+    };
     ws.onmessage = function (event) {
       var stroke = JSON.parse(event.data);
       if (stroke.stroke) {
