@@ -149,7 +149,6 @@ body{
 
 .yearbook-index-sidebar {
   background: rgba(0,140,149, .9);
-  border-left: solid 1px #dadada;
   padding: 24px;
   position: absolute;
   z-index: 2;
