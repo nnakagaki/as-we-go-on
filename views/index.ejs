@@ -89,7 +89,7 @@
       success : function(res) {
         allStrokes = res;
 
-        for (var i = 2; i < $('#js-flipbook').children().length - 2; i++) {
+        for (var i = 1; i < $('#js-flipbook').children().length - 1; i++) {
           utils.addStrokesToPageCanvas(i);
         }
       },
