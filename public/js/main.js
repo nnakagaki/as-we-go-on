@@ -80,7 +80,7 @@ mainObject = {
         }
       }
     });
-    
+
     slider.slider({
       min    : 1,
       max    : flipbook.turn("pages"),
@@ -183,12 +183,13 @@ mainObject = {
 
     onSignIn = function(googleUser) {
       var profile = googleUser.getBasicProfile();
-      $('.js-google-signin').append('<img class="google-signed-in-image" src="' + profile.getImageUrl() + '" />')
+      $('.js-google-signin').append('<img data-tooltip-position="bottom center" data-tooltip="' + profile.getName() + '" class="google-signed-in-image" src="' + profile.getImageUrl() + '" />')
       $('.js-google-signin-button').addClass('is-hidden');
       console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
       console.log('Name: ' + profile.getName());
       console.log('Image URL: ' + profile.getImageUrl());
       console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      Tooltip.init();
     }
 
     $('.js-draw').on('click', function() {
