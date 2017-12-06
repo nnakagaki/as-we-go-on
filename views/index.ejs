@@ -45,68 +45,28 @@
           <div id="js-flipbook" class="flipbook">
             <div class="hard"> Animoto: Class of 2017 </div>
             <div class="hard front-side"><div class="depth"></div></div>
-            <div class="own-size">
-              <div class="gradient"></div>
-              <canvas id="js-canvas-page-3" class="page-canvas" height="594" width="420"></canvas>
-              <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
-            </div>
-            <div class="own-size">
-              <div class="gradient"></div>
-              <canvas id="js-canvas-page-4" class="page-canvas" height="594" width="420"></canvas>
-              <img class="full-height full-width" src="images/test_1.jpg" />
-            </div>
-            <div class="own-size">
-              <div class="gradient"></div>
-              <canvas id="js-canvas-page-5" class="page-canvas" height="594" width="420"></canvas>
-              <img class="full-height full-width" src="images/test_2.jpg" />
-            </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 4 </div>
+            <%- include('partials/page', { pageNum : 3, imageSrc : "https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" }) %>
+            <%- include('partials/page', { pageNum : 4, imageSrc : "images/test_1.jpg" }) %>
+            <%- include('partials/page', { pageNum : 5, imageSrc : "images/test_2.jpg" }) %>
+            <%- include('partials/page', { pageNum : 6, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 7, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 8, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 9, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 10, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 11, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 12, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 13, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 14, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 15, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 16, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 17, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 18, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 19, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 20, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 21, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 22, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 23, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 24, imageSrc : '' }) %>
             <div class="hard fixed back-side"><div class="depth"></div></div>
             <div class="hard"></div>
           </div>
@@ -135,16 +95,6 @@
     zoomWrap.css({ width : baseOuterWidth * 2 });
     slider.css({ width : baseOuterWidth });
 
-    $.ajax({
-      url     : '/strokes',
-      success : function(res) {
-        allStrokes = res
-        addStrokesToPageCanvas(3);
-        addStrokesToPageCanvas(4);
-        addStrokesToPageCanvas(5);
-      }
-    });
-
     addStrokesToPageCanvas = function(pageNum) {
       var pageStrokes = _.filter(allStrokes, function(stroke) { return stroke.page === pageNum; }),
           canvas = document.getElementById('js-canvas-page-' + pageNum);
@@ -154,7 +104,17 @@
         var path = new paper.Path();
         path.importJSON(stroke.stroke);
       });
-    }
+    };
+
+    $.ajax({
+      url     : '/strokes',
+      success : function(res) {
+        allStrokes = res;
+        for (var i = 2; i < flipbook.turn('pages') - 2; i++) {
+          addStrokesToPageCanvas(i);
+        }
+      }
+    });
 
     flipbook.turn({
       width      : baseOuterWidth * 2,
