@@ -15,6 +15,47 @@ mainObject = {
     zoomWrap.css({ width : baseOuterWidth * 2 });
     slider.css({ width : baseOuterWidth });
 
+    updateDepth = function (book, newPage) {
+      var page = book.turn('page'),
+        pages = book.turn('pages'),
+        depthWidth,
+        gutter;
+
+      if (isFullScreen) {
+        depthWidth = 25 * Math.min(1, page * 2 / pages);
+        gutter = 30;
+      } else {
+        depthWidth = 16 * Math.min(1, page * 2 / pages);
+        gutter = 20;
+      }
+
+      newPage = newPage || page;
+
+      if (newPage > 3) {
+        $('.front-side .depth').css({
+          width: depthWidth,
+          left: gutter - depthWidth
+        });
+      } else {
+        $('.front-side .depth').css({ width: 0 });
+        if (isFullScreen) {
+          depthWidth = 16 * Math.min(1, (pages - page) * 2 / pages);
+        } else {
+          depthWidth = 25 * Math.min(1, (pages - page) * 2 / pages);
+        }
+      }
+
+
+      if (newPage < pages - 3) {
+        $('.back-side .depth').css({
+          width: depthWidth,
+          right: gutter - depthWidth
+        });
+      } else {
+        $('.back-side .depth').css({ width: 0 });
+      }
+    }
+
     flipbook.turn({
       width      : baseOuterWidth * 2,
       height     : baseOuterHeight * 2,
@@ -35,10 +76,11 @@ mainObject = {
           else {
             $('.hard.back-side').removeClass('fixed');
           }
+          updateDepth(book, page);
         }
       }
     });
-
+    
     slider.slider({
       min    : 1,
       max    : flipbook.turn("pages"),
@@ -64,8 +106,7 @@ mainObject = {
           height : newInnerHeight - 20
         });
         $('.depth').css({
-          height : newHeight - 10,
-          width  : 25
+          height : newHeight - 10
         });
         flipbook.turn('size', newOuterWidth, newHeight);
       }
@@ -111,12 +152,10 @@ mainObject = {
         height : newInnerHeight - 20
       });
       $('.depth').css({
-        height : newHeight - 10,
-        width  : 25
+        height : newHeight - 10
       });
       zoomWrap.css({ width: newOuterWidth });
       flipbook.turn('size', newOuterWidth, newHeight);
-
       req.call(zoomWrap[0]);
     });
 
@@ -128,8 +167,7 @@ mainObject = {
           height : baseInnerHeight * 2
         });
         $('.depth').css({
-          height : 604,
-          width  : 16
+          height : 604
         })
         flipbook.turn('size', currentOuterWidth, currentOuterHeight);
         isFullScreen = false;
