@@ -88,7 +88,11 @@
     </div>
   </body>
   <script>
+    <% if (env === 'development') { %>
+    ws = new WebSocket('ws://' + window.location.host);
+    <% } else { %>
     ws = new WebSocket('wss://' + window.location.host);
+    <% } %>
     ws.onerror = function() {
       console.log('websockets error');
     };

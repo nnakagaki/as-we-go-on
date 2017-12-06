@@ -12,6 +12,7 @@ const dbConfig = {
   password : process.env.DB_PASSWORD,
   database : process.env.DB_DATABASE
 };
+const env = process.env.NODE_ENV || 'development';
 
 var connection;
 
@@ -46,7 +47,8 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.render('index', {
-    googleClientId : process.env.GOOGLE_CLIENT_ID || 'wontwork'
+    googleClientId : process.env.GOOGLE_CLIENT_ID || 'wontwork',
+    env            : env
   });
 });
 
