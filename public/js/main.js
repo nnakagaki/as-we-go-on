@@ -9,6 +9,7 @@ mainObject = {
     currentOuterHeight = baseOuterHeight * 2;
 
     inDrawMode = false;
+    loggedIn = false;
 
     zoomWrap = $('#js-zoom-wrap');
     flipbook = $("#js-flipbook");
@@ -199,6 +200,7 @@ mainObject = {
       console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
       Tooltip.init();
       ws.send(JSON.stringify({ name : profile.getName(), profileImage : profile.getImageUrl() }));
+      loggedIn = true;
     }
 
     enterDrawMode = function() {
