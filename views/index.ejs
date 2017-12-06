@@ -84,11 +84,13 @@
     </div>
   </body>
   <script>
-    ws = new WebSocket('ws://localhost:3000');
+    ws = new WebSocket('ws://' + window.location.host);
     ws.onmessage = function (event) {
       var stroke = JSON.parse(event.data);
-      allStrokes.push(stroke);
-      utils.addStrokesToPageCanvas(stroke.page);
+      if (stroke.stroke) {
+        allStrokes.push(stroke);
+        utils.addStrokesToPageCanvas(stroke.page);
+      }
     };
 
     $.ajax({
