@@ -36,7 +36,9 @@ function onMouseDrag(event) {
 function onMouseUp(event) {
   var delta = event.point - lastPoint,
       flipbookPage = window.flipbook.turn('page'),
-      currentPage;
+      currentPage,
+      pathJSON;
+
   delta.length = tool.maxDistance;
   addStrokes(event.point, delta);
   path.closed = true;
@@ -56,14 +58,19 @@ function onMouseUp(event) {
     }
   }
 
+  pathJSON = path.exportJSON();
+
   $.ajax({
     url    : '/strokes',
     method : 'POST',
     data   : {
       stroke : {
-        stroke : path.exportJSON(),
+        stroke : pathJSON,
         page   : currentPage
       }
+    },
+    success : function() {
+      utils.addStrokesToPageCanvas(currentPage, [pathJSON]);
     }
   });
 }
