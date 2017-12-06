@@ -148,7 +148,7 @@ body{
   bottom: -10px;
   right: 440px;
   left: 20px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .drawing-canvas-2 {
@@ -157,5 +157,14 @@ body{
   bottom: -10px;
   right: 20px;
   left: 440px;
+  z-index: 2;
+}
+
+.page-canvas {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
 }

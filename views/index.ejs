@@ -11,6 +11,7 @@
     <script type="text/javascript" src="js/vendor/zoom.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/vendor/paper-full.min.js"></script>
+    <script type="text/javascript" src="js/vendor/lodash.min.js"></script>
   </head>
   <body class="container-fluid no-overflow">
     <div class="js-sidebar yearbook-index-sidebar hide-when-sm hide-when-md hide-when-lg col-xlg-2 full-height overflow-auto inverted">
@@ -46,14 +47,17 @@
             <div class="hard front-side"><div class="depth"></div></div>
             <div class="own-size">
               <div class="gradient"></div>
+              <canvas id="js-canvas-page-3" class="page-canvas" height="594" width="420"></canvas>
               <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
             </div>
             <div class="own-size">
               <div class="gradient"></div>
+              <canvas id="js-canvas-page-4" class="page-canvas" height="594" width="420"></canvas>
               <img class="full-height full-width" src="images/test_1.jpg" />
             </div>
             <div class="own-size">
               <div class="gradient"></div>
+              <canvas id="js-canvas-page-5" class="page-canvas" height="594" width="420"></canvas>
               <img class="full-height full-width" src="images/test_2.jpg" />
             </div>
             <div class="own-size"> Page 4 </div>
@@ -134,9 +138,23 @@
     $.ajax({
       url     : '/strokes',
       success : function(res) {
-        console.log(res)
+        allStrokes = res
+        addStrokesToPageCanvas(3);
+        addStrokesToPageCanvas(4);
+        addStrokesToPageCanvas(5);
       }
-    })
+    });
+
+    addStrokesToPageCanvas = function(pageNum) {
+      var pageStrokes = _.filter(allStrokes, function(stroke) { return stroke.page === pageNum; }),
+          canvas = document.getElementById('js-canvas-page-' + pageNum);
+
+      paper.setup(canvas);
+      pageStrokes.forEach(function(stroke) {
+        var path = new paper.Path();
+        path.importJSON(stroke.stroke);
+      });
+    }
 
     flipbook.turn({
       width      : baseOuterWidth * 2,

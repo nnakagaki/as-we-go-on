@@ -35,16 +35,25 @@ function onMouseDrag(event) {
 
 function onMouseUp(event) {
   var delta = event.point - lastPoint,
-      page;
+      flipbookPage = window.flipbook.turn('page'),
+      currentPage;
   delta.length = tool.maxDistance;
   addStrokes(event.point, delta);
   path.closed = true;
   path.smooth();
 
   if (view._id === 'js-left-canvas') {
-    page = window.flipbook.turn('page') - 1;
+    if (flipbookPage % 2 === 0) {
+      currentPage = flipbookPage;
+    } else {
+      currentPage = flipbookPage - 1;
+    }
   } else {
-    page = window.flipbook.turn('page');
+    if (flipbookPage % 2 === 0) {
+      currentPage = flipbookPage + 1;
+    } else {
+      currentPage = flipbookPage;
+    }
   }
 
   $.ajax({
@@ -53,7 +62,7 @@ function onMouseUp(event) {
     data   : {
       stroke : {
         stroke : path.exportJSON(),
-        page   : page
+        page   : currentPage
       }
     }
   });
