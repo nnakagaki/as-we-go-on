@@ -98,7 +98,7 @@
         allStrokes.push(data);
         utils.addStrokesToPageCanvas(data.page);
       } else if (loggedIn && data.profileImage) {
-        $('.js-google-signin').append('<img class="margin-left-1" data-tooltip-position="bottom right" data-tooltip="' + data.name + '" class="google-signed-in-image" src="' + data.profileImage + '" />')
+        $('.js-google-signin').append('<img class="margin-left-1 google-signed-in-image" data-tooltip-position="bottom right" data-tooltip="' + data.name + '" class="google-signed-in-image" src="' + data.profileImage + '" />')
         Tooltip.init();
       }
     };
