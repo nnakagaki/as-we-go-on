@@ -3,7 +3,7 @@
 
 .tooltip-element {
   position: absolute;
-  display: none; }
+  display: none;}
   .tooltip-element.tooltip-open {
     display: block; }
 
@@ -108,4 +108,5 @@
 .tooltip-element.tooltip-theme-arrows {
   pointer-events: none; }
   .tooltip-element.tooltip-theme-arrows .tooltip-content {
-    padding: 0.5em 1em; }
+    padding: 0.5em 1em;
+    transform: translateX(-80%);}
