@@ -149,6 +149,12 @@ mainObject = {
         } else {
           enterDrawMode();
         }
+      } else if (e.which === 72) {
+        if (noDoodleMode) {
+          showDoodles();
+        } else {
+          hideDoodles();
+        }
       }
     });
     $('.js-fullscreen').on('click', function() {
@@ -240,19 +246,22 @@ mainObject = {
       $('.yearbook-index-sidebar').toggleClass('open');
     });
 
-    $('.js-hide-doodle').on('click', function() {
+    hideDoodles = function() {
       $('.js-hide-doodle').addClass('is-hidden');
       $('.js-show-doodle').removeClass('is-hidden');
       exitDrawMode();
       $("[id^=js-canvas-page-]").addClass('is-hidden');
       noDoodleMode = true;
-    });
+    };
 
-    $('.js-show-doodle').on('click', function() {
+    showDoodles = function() {
       $('.js-hide-doodle').removeClass('is-hidden');
       $('.js-show-doodle').addClass('is-hidden');
       $("[id^=js-canvas-page-]").removeClass('is-hidden');
       noDoodleMode = false;
-    });
+    };
+
+    $('.js-hide-doodle').on('click', hideDoodles);
+    $('.js-show-doodle').on('click', showDoodles);
   }
 }
