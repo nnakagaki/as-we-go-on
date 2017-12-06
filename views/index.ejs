@@ -11,7 +11,6 @@
     <script type="text/javascript" src="js/vendor/zoom.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/vendor/paper-full.min.js"></script>
-    <script type="text/javascript" src="js/vendor/FileSaver.min.js"></script>
   </head>
   <body class="container-fluid no-overflow">
     <div class="js-sidebar yearbook-index-sidebar hide-when-sm hide-when-md hide-when-lg col-xlg-2 full-height overflow-auto inverted">
@@ -40,8 +39,8 @@
       </div>
       <div class="display-flex horizontal-center-flex-container">
         <div id="js-zoom-wrap" class="flipbook-wrap transparent-background make-relative">
-          <canvas id="myCanvas1" class="drawing-canvas-1 is-hidden" height="594" width="420"></canvas>
-          <canvas id="myCanvas2" class="drawing-canvas-2 is-hidden" height="594" width="420"></canvas>
+          <canvas id="js-left-canvas" class="drawing-canvas-1 is-hidden" height="594" width="420"></canvas>
+          <canvas id="js-right-canvas" class="drawing-canvas-2 is-hidden" height="594" width="420"></canvas>
           <div id="js-flipbook" class="flipbook">
             <div class="hard"> Animoto: Class of 2017 </div>
             <div class="hard front-side"><div class="depth"></div></div>
@@ -132,13 +131,20 @@
     zoomWrap.css({ width : baseOuterWidth * 2 });
     slider.css({ width : baseOuterWidth });
 
+    $.ajax({
+      url     : '/strokes',
+      success : function(res) {
+        console.log(res)
+      }
+    })
+
     flipbook.turn({
       width      : baseOuterWidth * 2,
       height     : baseOuterHeight * 2,
       elevation  : 50,
       autoCenter : true,
-      when: {
-        turning: function (e, page, view) {
+      when       : {
+        turning : function (e, page, view) {
           var book = $(this)
           if (page >= 2) {
             $('.hard.front-side').addClass('fixed');
@@ -156,11 +162,9 @@
       }
     });
 
-    maxPages = flipbook.turn("pages")
-
     slider.slider({
       min    : 1,
-      max    : maxPages,
+      max    : flipbook.turn("pages"),
       change : function(e, ui) {
         flipbook.turn('page', ui.value)
       }
@@ -262,7 +266,7 @@
     document.addEventListener('mozfullscreenchange', onFullscreenChangeHandler);
     document.addEventListener('MSFullscreenChange', onFullscreenChangeHandler);
 
-    function onSignIn(googleUser) {
+    onSignIn = function(googleUser) {
       var profile = googleUser.getBasicProfile();
       $('.js-google-signin').append('<img class="google-signed-in-image" src="' + profile.getImageUrl() + '" />')
       $('.js-google-signin-button').addClass('is-hidden');
@@ -274,16 +278,16 @@
 
     $('.js-draw').on('click', function() {
       flipbook.turn('disable', true);
-      $('#myCanvas1').removeClass('is-hidden');
-      $('#myCanvas2').removeClass('is-hidden');
+      $('#js-left-canvas').removeClass('is-hidden');
+      $('#js-right-canvas').removeClass('is-hidden');
       $('.js-flip').removeClass('is-hidden');
       $('.js-draw').addClass('is-hidden');
     });
 
     $('.js-flip').on('click', function() {
       flipbook.turn('disable', false);
-      $('#myCanvas1').addClass('is-hidden');
-      $('#myCanvas2').addClass('is-hidden');
+      $('#js-left-canvas').addClass('is-hidden');
+      $('#js-right-canvas').addClass('is-hidden');
       $('.js-flip').addClass('is-hidden');
       $('.js-draw').removeClass('is-hidden');
     });
@@ -294,19 +298,19 @@
     })
 
     saveLeft = function() {
-      var canvas = document.getElementById("myCanvas1");
+      var canvas = document.getElementById("js-left-canvas");
       canvas.toBlob(function(blob) {
         saveAs(blob, "lol.png");
       });
     }
 
     saveRight = function() {
-      var canvas = document.getElementById("myCanvas2");
+      var canvas = document.getElementById("js-right-canvas");
       canvas.toBlob(function(blob) {
         saveAs(blob, "pretty image.png");
       });
     }
   </script>
-  <script type="text/paperscript" src="js/canvas.js" canvas="myCanvas1"></script>
-  <script type="text/paperscript" src="js/canvas.js" canvas="myCanvas2"></script>
+  <script type="text/paperscript" src="js/canvas.js" canvas="js-left-canvas"></script>
+  <script type="text/paperscript" src="js/canvas.js" canvas="js-right-canvas"></script>
 </html>

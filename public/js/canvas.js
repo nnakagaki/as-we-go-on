@@ -34,11 +34,29 @@ function onMouseDrag(event) {
 }
 
 function onMouseUp(event) {
-  var delta = event.point - lastPoint;
+  var delta = event.point - lastPoint,
+      page;
   delta.length = tool.maxDistance;
   addStrokes(event.point, delta);
   path.closed = true;
   path.smooth();
+
+  if (view._id === 'js-left-canvas') {
+    page = window.flipbook.turn('page') - 1;
+  } else {
+    page = window.flipbook.turn('page');
+  }
+
+  $.ajax({
+    url    : '/strokes',
+    method : 'POST',
+    data   : {
+      stroke : {
+        stroke : path.exportJSON(),
+        page   : page
+      }
+    }
+  });
 }
 
 function addStrokes(point, delta) {
