@@ -10,6 +10,7 @@ mainObject = {
 
     inDrawMode = false;
     loggedIn = false;
+    noDoodleMode = false;
 
     zoomWrap = $('#js-zoom-wrap');
     flipbook = $("#js-flipbook");
@@ -112,6 +113,12 @@ mainObject = {
           height : newHeight - 10
         });
         flipbook.turn('size', newOuterWidth, newHeight);
+      }
+
+      if (noDoodleMode || isFullScreen) {
+        $("[id^=js-canvas-page-]").addClass('is-hidden');
+      } else {
+        $("[id^=js-canvas-page-]").removeClass('is-hidden');
       }
     });
 
@@ -231,6 +238,21 @@ mainObject = {
 
     $('.js-toggle-sidebar').on('click', function() {
       $('.yearbook-index-sidebar').toggleClass('open');
+    });
+
+    $('.js-hide-doodle').on('click', function() {
+      $('.js-hide-doodle').addClass('is-hidden');
+      $('.js-show-doodle').removeClass('is-hidden');
+      exitDrawMode();
+      $("[id^=js-canvas-page-]").addClass('is-hidden');
+      noDoodleMode = true;
+    });
+
+    $('.js-show-doodle').on('click', function() {
+      $('.js-hide-doodle').removeClass('is-hidden');
+      $('.js-show-doodle').addClass('is-hidden');
+      $("[id^=js-canvas-page-]").removeClass('is-hidden');
+      noDoodleMode = false;
     });
   }
 }
