@@ -53,7 +53,7 @@ app.get('/strokes', (req, res) => {
 
   connection.query('SELECT * FROM strokes', function (error, results, fields) {
     if (error) {
-      console.log(error);
+      res.status(400).end();
       return;
     }
     results = results;
@@ -67,9 +67,9 @@ app.post('/strokes', (req, res) => {
 
   connection.query('INSERT INTO strokes SET ?', { stroke : stroke.stroke, page : stroke.page}, function (error, results, fields) {
     if (error) {
-      console.log(error);
+      res.status(400).end();
     } else {
-      console.log(results.insertId);
+      res.status(201).end();
     }
   });
 });
