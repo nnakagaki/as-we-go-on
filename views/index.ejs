@@ -83,12 +83,11 @@
     </div>
   </body>
   <script>
-    addStrokesToPageCanvas = function(pageNum) {
-      var pageStrokes = _.filter(allStrokes, function(stroke) { return stroke.page === pageNum; }),
-          canvas = document.getElementById('js-canvas-page-' + pageNum);
+    addStrokesToPageCanvas = function(pageNum, strokes) {
+      var canvas = document.getElementById('js-canvas-page-' + pageNum);
 
       paper.setup(canvas);
-      pageStrokes.forEach(function(stroke) {
+      strokes.forEach(function(stroke) {
         var path = new paper.Path();
         path.importJSON(stroke.stroke);
       });
@@ -97,9 +96,12 @@
     $.ajax({
       url     : '/strokes',
       success : function(res) {
-        allStrokes = res;
+        var allStrokes = res,
+            pageStrokes;
+
         for (var i = 2; i < $('#js-flipbook').children().length - 2; i++) {
-          addStrokesToPageCanvas(i);
+          pageStrokes = _.filter(allStrokes, function(stroke) { return stroke.page === pageNum; }),
+          addStrokesToPageCanvas(i, pageStrokes);
         }
       },
       complete : function() {
