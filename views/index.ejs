@@ -98,7 +98,7 @@
       url     : '/strokes',
       success : function(res) {
         allStrokes = res;
-        for (var i = 2; i < flipbook.turn('pages') - 2; i++) {
+        for (var i = 2; i < $('#js-flipbook').children().length - 2; i++) {
           addStrokesToPageCanvas(i);
         }
       },
