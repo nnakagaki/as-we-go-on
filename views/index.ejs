@@ -43,7 +43,7 @@
         <button class="js-flip button is-hidden">STOP DRAWING</button>
       </div>
       <div class="display-flex horizontal-center-flex-container">
-        <div id="js-zoom-wrap" class="flipbook-wrap transparent-background make-relative">
+        <div id="js-zoom-wrap" class="flipbook-wrap transparent-background make-relative is-hidden">
           <canvas id="js-left-canvas" class="drawing-canvas-1 is-hidden" height="594" width="420"></canvas>
           <canvas id="js-right-canvas" class="drawing-canvas-2 is-hidden" height="594" width="420"></canvas>
           <div id="js-flipbook" class="flipbook">
@@ -77,24 +77,32 @@
         </div>
       </div><div id="js-slider" class="page-slider margin-top-4 margin-bottom-6">
       </div>
-      <div class="pull-right">
+      <div id="js-privacy-policy" class="pull-right is-hidden">
         <a href="//www.iubenda.com/privacy-policy/8279875" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
-        <script type="text/javascript">(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
+        <script type="text/javascript">(function (w, d) { var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s, tag); $('#js-privacy-policy').removeClass('is-hidden') }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);</script>
       </div>
     </div>
   </body>
   <script>
+    ws = new WebSocket('ws://localhost:3000');
+    ws.onmessage = function (event) {
+      var stroke = JSON.parse(event.data);
+      allStrokes.push(stroke);
+      utils.addStrokesToPageCanvas(stroke.page);
+    };
+
     $.ajax({
       url     : '/strokes',
       success : function(res) {
         allStrokes = res;
 
-        for (var i = 2; i < $('#js-flipbook').children().length - 2; i++) {
+        for (var i = 1; i < $('#js-flipbook').children().length - 1; i++) {
           utils.addStrokesToPageCanvas(i);
         }
       },
       complete : function() {
         mainObject.initialize();
+        $('#js-zoom-wrap').removeClass('is-hidden');
       }
     });
   </script>
