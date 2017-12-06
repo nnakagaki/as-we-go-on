@@ -37,7 +37,7 @@ function onMouseUp(event) {
   var delta = event.point - lastPoint,
       flipbookPage = window.flipbook.turn('page'),
       currentPage,
-      pathJSON;
+      strokeData;
 
   delta.length = tool.maxDistance;
   addStrokes(event.point, delta);
@@ -58,23 +58,21 @@ function onMouseUp(event) {
     }
   }
 
-  pathJSON = path.exportJSON();
+  strokeData = {
+    stroke : path.exportJSON(),
+    page   : currentPage
+  }
 
   $.ajax({
     url    : '/strokes',
     method : 'POST',
     data   : {
-      stroke : {
-        stroke : pathJSON,
-        page   : currentPage
-      }
+      stroke : strokeData
     },
     success : function() {
-      allStrokes.push({
-        stroke : pathJSON,
-        page   : currentPage
-      });
+      allStrokes.push(strokeData);
       utils.addStrokesToPageCanvas(currentPage);
+      ws.send(JSON.stringify(strokeData))
     }
   });
 }

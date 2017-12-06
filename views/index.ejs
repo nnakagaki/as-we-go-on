@@ -84,6 +84,13 @@
     </div>
   </body>
   <script>
+    ws = new WebSocket('ws://localhost:3000');
+    ws.onmessage = function (event) {
+      var stroke = JSON.parse(event.data);
+      allStrokes.push(stroke);
+      utils.addStrokesToPageCanvas(stroke.page);
+    };
+
     $.ajax({
       url     : '/strokes',
       success : function(res) {

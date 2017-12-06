@@ -1,14 +1,16 @@
-const express = require('express')
+const express = require('express');
+const http = require('http');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const app = express()
+const app = express();
+const WebSocket = require('ws');
 const port = process.env.PORT || 3000;
 const mysql = require('mysql');
 const dbConfig = {
-  host     : process.env.DB_HOST,
-  user     : process.env.DB_USERNAME,
-  password : process.env.DB_PASSWORD,
-  database : process.env.DB_DATABASE
+  host     : 'us-cdbr-iron-east-05.cleardb.net',
+  user     : 'b8770757c38c73',
+  password : '2b948dc3',
+  database : 'heroku_82c2a247bb89752'
 };
 
 var connection;
@@ -74,4 +76,22 @@ app.post('/strokes', (req, res) => {
   });
 });
 
-app.listen(port, () => console.log('Example app listening on port 3000!'))
+const server = app.listen(port, () => console.log('Example app listening on port 3000!'))
+
+const wss = new WebSocket.Server({ server });
+
+wss.on('connection', function connection(ws, req) {
+  ws.on('message', function incoming(message) {
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(message);
+      }
+    });
+  });
+
+  wss.clients.forEach(function each(client) {
+    if (client !== ws && client.readyState === WebSocket.OPEN) {
+      client.send(JSON.stringify({ work : 's??' }));
+    }
+  });
+});
