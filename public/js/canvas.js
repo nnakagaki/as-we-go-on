@@ -34,11 +34,38 @@ function onMouseDrag(event) {
 }
 
 function onMouseUp(event) {
-  var delta = event.point - lastPoint;
+  var delta = event.point - lastPoint,
+      flipbookPage = window.flipbook.turn('page'),
+      currentPage;
   delta.length = tool.maxDistance;
   addStrokes(event.point, delta);
   path.closed = true;
   path.smooth();
+
+  if (view._id === 'js-left-canvas') {
+    if (flipbookPage % 2 === 0) {
+      currentPage = flipbookPage;
+    } else {
+      currentPage = flipbookPage - 1;
+    }
+  } else {
+    if (flipbookPage % 2 === 0) {
+      currentPage = flipbookPage + 1;
+    } else {
+      currentPage = flipbookPage;
+    }
+  }
+
+  $.ajax({
+    url    : '/strokes',
+    method : 'POST',
+    data   : {
+      stroke : {
+        stroke : path.exportJSON(),
+        page   : currentPage
+      }
+    }
+  });
 }
 
 function addStrokes(point, delta) {

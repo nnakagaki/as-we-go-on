@@ -11,7 +11,7 @@
     <script type="text/javascript" src="js/vendor/zoom.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/vendor/paper-full.min.js"></script>
-    <script type="text/javascript" src="js/vendor/FileSaver.min.js"></script>
+    <script type="text/javascript" src="js/vendor/lodash.min.js"></script>
   </head>
   <body class="container-fluid no-overflow white-background">
     <div class="js-sidebar yearbook-index-sidebar full-height overflow-auto inverted">
@@ -42,70 +42,33 @@
       </div>
       <div class="display-flex horizontal-center-flex-container">
         <div id="js-zoom-wrap" class="flipbook-wrap transparent-background make-relative">
-          <canvas id="myCanvas1" class="drawing-canvas-1 is-hidden" height="594" width="420"></canvas>
-          <canvas id="myCanvas2" class="drawing-canvas-2 is-hidden" height="594" width="420"></canvas>
+          <canvas id="js-left-canvas" class="drawing-canvas-1 is-hidden" height="594" width="420"></canvas>
+          <canvas id="js-right-canvas" class="drawing-canvas-2 is-hidden" height="594" width="420"></canvas>
           <div id="js-flipbook" class="flipbook">
             <div class="hard"> Animoto: Class of 2017 </div>
             <div class="hard front-side"><div class="depth"></div></div>
-            <div class="own-size">
-              <div class="gradient"></div>
-              <img class="full-height full-width" src="https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" />
-            </div>
-            <div class="own-size">
-              <div class="gradient"></div>
-              <img class="full-height full-width" src="images/test_1.jpg" />
-            </div>
-            <div class="own-size">
-              <div class="gradient"></div>
-              <img class="full-height full-width" src="images/test_2.jpg" />
-            </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 2 </div>
-            <div class="own-size"> Page 3 </div>
-            <div class="own-size"> Page 4 </div>
-            <div class="own-size"> Page 4 </div>
+            <%- include('partials/page', { pageNum : 3, imageSrc : "https://static.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" }) %>
+            <%- include('partials/page', { pageNum : 4, imageSrc : "images/test_1.jpg" }) %>
+            <%- include('partials/page', { pageNum : 5, imageSrc : "images/test_2.jpg" }) %>
+            <%- include('partials/page', { pageNum : 6, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 7, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 8, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 9, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 10, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 11, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 12, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 13, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 14, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 15, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 16, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 17, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 18, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 19, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 20, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 21, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 22, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 23, imageSrc : '' }) %>
+            <%- include('partials/page', { pageNum : 24, imageSrc : '' }) %>
             <div class="hard fixed back-side"><div class="depth"></div></div>
             <div class="hard"></div>
           </div>
@@ -123,11 +86,9 @@
     baseOuterHeight = 307;
     baseInnerWidth = 420;
     baseInnerHeight = 297;
-    currentOuterWidth = baseOuterWidth;
-    currentOuterHeight = baseOuterHeight;
-    currentInnerWidth = baseInnerWidth;
-    currentInnerHeight = baseInnerHeight;
     isFullScreen = false;
+    currentOuterWidth = baseOuterWidth * 2;
+    currentOuterHeight = baseOuterHeight * 2;
 
     zoomWrap = $('#js-zoom-wrap');
     flipbook = $("#js-flipbook");
@@ -136,13 +97,34 @@
     zoomWrap.css({ width : baseOuterWidth * 2 });
     slider.css({ width : baseOuterWidth });
 
+    addStrokesToPageCanvas = function(pageNum) {
+      var pageStrokes = _.filter(allStrokes, function(stroke) { return stroke.page === pageNum; }),
+          canvas = document.getElementById('js-canvas-page-' + pageNum);
+
+      paper.setup(canvas);
+      pageStrokes.forEach(function(stroke) {
+        var path = new paper.Path();
+        path.importJSON(stroke.stroke);
+      });
+    };
+
+    $.ajax({
+      url     : '/strokes',
+      success : function(res) {
+        allStrokes = res;
+        for (var i = 2; i < flipbook.turn('pages') - 2; i++) {
+          addStrokesToPageCanvas(i);
+        }
+      }
+    });
+
     flipbook.turn({
       width      : baseOuterWidth * 2,
       height     : baseOuterHeight * 2,
       elevation  : 50,
       autoCenter : true,
-      when: {
-        turning: function (e, page, view) {
+      when       : {
+        turning : function (e, page, view) {
           var book = $(this)
           if (page >= 2) {
             $('.hard.front-side').addClass('fixed');
@@ -160,11 +142,9 @@
       }
     });
 
-    maxPages = flipbook.turn("pages")
-
     slider.slider({
       min    : 1,
-      max    : maxPages,
+      max    : flipbook.turn("pages"),
       change : function(e, ui) {
         flipbook.turn('page', ui.value)
       }
@@ -172,6 +152,26 @@
 
     flipbook.on('turned', function(event, page, view) {
       slider.slider('value', page);
+    });
+
+    flipbook.on('start', function(event, page, view) {
+      if (isFullScreen) {
+        var newHeight = screen.height;
+        var outerRatio = screen.height / currentOuterHeight;
+        var newOuterWidth = (currentOuterWidth) * outerRatio;
+        var innerRatio = screen.height / baseInnerHeight;
+        var newInnerWidth = baseInnerWidth * innerRatio;
+        var newInnerHeight = baseInnerHeight * innerRatio;
+        $('.own-size').css({
+          width  : newInnerWidth / 2 - 20,
+          height : newInnerHeight - 20
+        });
+        $('.depth').css({
+          height : newHeight - 10,
+          width  : 25
+        });
+        flipbook.turn('size', newOuterWidth, newHeight);
+      }
     });
 
     $('.js-zoom-in').on('click', function() {
@@ -200,16 +200,24 @@
     $('.js-fullscreen').on('click', function() {
       req = zoomWrap[0].requestFullScreen || zoomWrap[0].webkitRequestFullScreen || zoomWrap[0].mozRequestFullScreen;
 
-      currentWidth = zoomWrap.width();
-      currentHeight = zoomWrap.height()
+      currentOuterWidth = zoomWrap.width();
+      currentOuterHeight = zoomWrap.height();
 
       var newHeight = screen.height;
-      var outerRatio = screen.height / baseOuterHeight;
-      var newOuterWidth = baseOuterWidth * outerRatio;
+      var outerRatio = screen.height / currentOuterHeight;
+      var newOuterWidth = (currentOuterWidth) * outerRatio;
       var innerRatio = screen.height / baseInnerHeight;
       var newInnerWidth = baseInnerWidth * innerRatio;
+      var newInnerHeight = baseInnerHeight * innerRatio;
+      $('.own-size').css({
+        width  : newInnerWidth / 2 - 20,
+        height : newInnerHeight - 20
+      });
+      $('.depth').css({
+        height : newHeight - 10,
+        width  : 25
+      });
       zoomWrap.css({ width: newOuterWidth });
-      $('.own-size').css({ width: newInnerWidth });
       flipbook.turn('size', newOuterWidth, newHeight);
 
       req.call(zoomWrap[0]);
@@ -217,8 +225,16 @@
 
     onFullscreenChangeHandler = function() {
       if (isFullScreen) {
-        zoomWrap.css({ width : currentWidth })
-        flipbook.turn('size', currentWidth, currentHeight);
+        zoomWrap.css({ width : currentOuterWidth });
+        $('.own-size').css({
+          width  : baseInnerWidth,
+          height : baseInnerHeight * 2
+        });
+        $('.depth').css({
+          height : 604,
+          width  : 16
+        })
+        flipbook.turn('size', currentOuterWidth, currentOuterHeight);
         isFullScreen = false;
       } else {
         isFullScreen = true;
@@ -230,7 +246,7 @@
     document.addEventListener('mozfullscreenchange', onFullscreenChangeHandler);
     document.addEventListener('MSFullscreenChange', onFullscreenChangeHandler);
 
-    function onSignIn(googleUser) {
+    onSignIn = function(googleUser) {
       var profile = googleUser.getBasicProfile();
       $('.js-google-signin').append('<img class="google-signed-in-image" src="' + profile.getImageUrl() + '" />')
       $('.js-google-signin-button').addClass('is-hidden');
@@ -241,15 +257,17 @@
     }
 
     $('.js-draw').on('click', function() {
-      $('#myCanvas1').removeClass('is-hidden');
-      $('#myCanvas2').removeClass('is-hidden');
+      flipbook.turn('disable', true);
+      $('#js-left-canvas').removeClass('is-hidden');
+      $('#js-right-canvas').removeClass('is-hidden');
       $('.js-flip').removeClass('is-hidden');
       $('.js-draw').addClass('is-hidden');
     });
 
     $('.js-flip').on('click', function() {
-      $('#myCanvas1').addClass('is-hidden');
-      $('#myCanvas2').addClass('is-hidden');
+      flipbook.turn('disable', false);
+      $('#js-left-canvas').addClass('is-hidden');
+      $('#js-right-canvas').addClass('is-hidden');
       $('.js-flip').addClass('is-hidden');
       $('.js-draw').removeClass('is-hidden');
     });
@@ -260,14 +278,14 @@
     })
 
     saveLeft = function() {
-      var canvas = document.getElementById("myCanvas1");
+      var canvas = document.getElementById("js-left-canvas");
       canvas.toBlob(function(blob) {
         saveAs(blob, "lol.png");
       });
     }
 
     saveRight = function() {
-      var canvas = document.getElementById("myCanvas2");
+      var canvas = document.getElementById("js-right-canvas");
       canvas.toBlob(function(blob) {
         saveAs(blob, "pretty image.png");
       });
@@ -278,6 +296,6 @@
     });
 
   </script>
-  <script type="text/paperscript" src="js/canvas.js" canvas="myCanvas1"></script>
-  <script type="text/paperscript" src="js/canvas.js" canvas="myCanvas2"></script>
+  <script type="text/paperscript" src="js/canvas.js" canvas="js-left-canvas"></script>
+  <script type="text/paperscript" src="js/canvas.js" canvas="js-right-canvas"></script>
 </html>
