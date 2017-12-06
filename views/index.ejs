@@ -12,6 +12,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/vendor/paper-full.min.js"></script>
     <script type="text/javascript" src="js/vendor/lodash.min.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   </head>
   <body class="container-fluid no-overflow white-background">
@@ -83,16 +84,6 @@
     </div>
   </body>
   <script>
-    addStrokesToPageCanvas = function(pageNum, strokes) {
-      var canvas = document.getElementById('js-canvas-page-' + pageNum);
-
-      paper.setup(canvas);
-      strokes.forEach(function(stroke) {
-        var path = new paper.Path();
-        path.importJSON(stroke.stroke);
-      });
-    };
-
     $.ajax({
       url     : '/strokes',
       success : function(res) {
@@ -101,7 +92,7 @@
 
         for (var i = 2; i < $('#js-flipbook').children().length - 2; i++) {
           pageStrokes = _.filter(allStrokes, function(stroke) { return stroke.page === pageNum; }),
-          addStrokesToPageCanvas(i, pageStrokes);
+          utils.addStrokesToPageCanvas(i, pageStrokes);
         }
       },
       complete : function() {
