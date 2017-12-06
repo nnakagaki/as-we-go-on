@@ -72,7 +72,7 @@ function onMouseUp(event) {
     success : function() {
       allStrokes.push(strokeData);
       utils.addStrokesToPageCanvas(currentPage);
-      ws.send(JSON.stringify(strokeData))
+      ws.send(JSON.stringify(strokeData));
     }
   });
 }

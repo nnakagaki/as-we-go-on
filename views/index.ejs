@@ -99,6 +99,7 @@
         utils.addStrokesToPageCanvas(data.page);
       } else if (data.profileImage) {
         $('.js-google-signin').append('<img data-tooltip-position="bottom right" data-tooltip="' + data.name + '" class="google-signed-in-image" src="' + data.profileImage + '" />')
+        Tooltip.init();
       }
     };
 

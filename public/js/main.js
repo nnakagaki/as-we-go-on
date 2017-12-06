@@ -8,6 +8,8 @@ mainObject = {
     currentOuterWidth = baseOuterWidth * 2;
     currentOuterHeight = baseOuterHeight * 2;
 
+    inDrawMode = false;
+
     zoomWrap = $('#js-zoom-wrap');
     flipbook = $("#js-flipbook");
     slider = $('#js-slider');
@@ -133,6 +135,12 @@ mainObject = {
         flipbook.turn('next');
       } else if (e.which === 37) {
         flipbook.turn('previous');
+      } else if (e.which === 68) {
+        if (inDrawMode) {
+          exitDrawMode();
+        } else {
+          enterDrawMode();
+        }
       }
     });
     $('.js-fullscreen').on('click', function() {
@@ -193,21 +201,26 @@ mainObject = {
       ws.send(JSON.stringify({ name : profile.getName(), profileImage : profile.getImageUrl() }));
     }
 
-    $('.js-draw').on('click', function() {
+    enterDrawMode = function() {
       flipbook.turn('disable', true);
       $('#js-left-canvas').removeClass('is-hidden');
       $('#js-right-canvas').removeClass('is-hidden');
       $('.js-flip').removeClass('is-hidden');
       $('.js-draw').addClass('is-hidden');
-    });
+      inDrawMode = true;
+    }
 
-    $('.js-flip').on('click', function() {
+    exitDrawMode = function() {
       flipbook.turn('disable', false);
       $('#js-left-canvas').addClass('is-hidden');
       $('#js-right-canvas').addClass('is-hidden');
       $('.js-flip').addClass('is-hidden');
       $('.js-draw').removeClass('is-hidden');
-    });
+      inDrawMode = false;
+    }
+
+    $('.js-draw').on('click', enterDrawMode);
+    $('.js-flip').on('click', exitDrawMode);
 
     $('.js-go-to-page').on('click', function(e) {
       var page = $(e.currentTarget).data('page');
