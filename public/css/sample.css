@@ -151,7 +151,7 @@ body{
   background: rgba(0,140,149, .9);
   padding: 24px;
   position: absolute;
-  z-index: 2;
+  z-index: 9999;
   width: 400px;
   left: -400px;
   -webkit-transition: left .2s ease;
