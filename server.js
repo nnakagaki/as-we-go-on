@@ -7,10 +7,10 @@ const WebSocket = require('ws');
 const port = process.env.PORT || 3000;
 const mysql = require('mysql');
 const dbConfig = {
-  host     : 'us-cdbr-iron-east-05.cleardb.net',
-  user     : 'b8770757c38c73',
-  password : '2b948dc3',
-  database : 'heroku_82c2a247bb89752'
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USERNAME,
+  password : process.env.DB_PASSWORD,
+  database : process.env.DB_DATABASE
 };
 
 var connection;
