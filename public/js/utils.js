@@ -1,9 +1,10 @@
 utils = {
-  addStrokesToPageCanvas : function(pageNum, strokes) {
-    var canvas = document.getElementById('js-canvas-page-' + pageNum);
+  addStrokesToPageCanvas : function(pageNum) {
+    var pageStrokes = _.filter(allStrokes, function(stroke) { return stroke.page === pageNum; }),
+        canvas = document.getElementById('js-canvas-page-' + pageNum);
 
     paper.setup(canvas);
-    strokes.forEach(function(stroke) {
+    pageStrokes.forEach(function(stroke) {
       var path = new paper.Path();
       path.importJSON(stroke.stroke);
     });

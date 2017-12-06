@@ -87,12 +87,10 @@
     $.ajax({
       url     : '/strokes',
       success : function(res) {
-        var allStrokes = res,
-            pageStrokes;
+        var allStrokes = res;
 
         for (var i = 2; i < $('#js-flipbook').children().length - 2; i++) {
-          pageStrokes = _.filter(allStrokes, function(stroke) { return stroke.page === i; }),
-          utils.addStrokesToPageCanvas(i, pageStrokes);
+          utils.addStrokesToPageCanvas(i);
         }
       },
       complete : function() {

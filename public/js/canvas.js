@@ -70,7 +70,11 @@ function onMouseUp(event) {
       }
     },
     success : function() {
-      utils.addStrokesToPageCanvas(currentPage, [pathJSON]);
+      allStrokes.push({
+        stroke : pathJSON,
+        page   : currentPage
+      });
+      utils.addStrokesToPageCanvas(currentPage);
     }
   });
 }
