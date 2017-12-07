@@ -126,7 +126,7 @@ body{
 
 .google-signin {
   position: absolute;
-  top: 18px;
+  top: 0;
   right: 24px;
 }
 
