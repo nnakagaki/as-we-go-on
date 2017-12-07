@@ -112,9 +112,9 @@ mainObject = {
       }
 
       if (noDoodleMode || isFullScreen) {
-        $("[id^=js-canvas-page-]").addClass('is-hidden');
+        $('[id^=js-canvas-page-]').addClass('is-hidden');
       } else {
-        $("[id^=js-canvas-page-]").removeClass('is-hidden');
+        $('[id^=js-canvas-page-]').removeClass('is-hidden');
       }
     });
 
@@ -254,14 +254,14 @@ mainObject = {
       $('.js-hide-doodle').addClass('is-hidden');
       $('.js-show-doodle').removeClass('is-hidden');
       exitDrawMode();
-      $("[id^=js-canvas-page-]").addClass('is-hidden');
+      $('[id^=js-canvas-page-]').addClass('is-hidden');
       noDoodleMode = true;
     };
 
     showDoodles = function() {
       $('.js-hide-doodle').removeClass('is-hidden');
       $('.js-show-doodle').addClass('is-hidden');
-      $("[id^=js-canvas-page-]").removeClass('is-hidden');
+      $('[id^=js-canvas-page-]').removeClass('is-hidden');
       noDoodleMode = false;
     };
 

@@ -98,6 +98,14 @@ wss.on('connection', function connection(ws, req) {
     });
   });
 
+  ws.on('close', function close() {
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(JSON.stringify({ removeUser : ws.googleName }));
+      }
+    });
+  });
+
   var alreadyInRoom = [];
 
   wss.clients.forEach(function each(client) {
