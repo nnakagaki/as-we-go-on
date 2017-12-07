@@ -13,8 +13,10 @@ mainObject = {
 
     if (!bowser.mobile) {
       zoomWrap.css({ width : baseOuterWidth * 2 });
+      slider.css({ width : baseOuterWidth });
+    } else {
+      slider.css({ width : screen.width - 40 });
     }
-    slider.css({ width : baseOuterWidth });
 
     updateDepth = function (book, newPage) {
       var page = book.turn('page'),
@@ -57,10 +59,14 @@ mainObject = {
       }
     }
 
+    if (bowser.mobile) {
+      mobileRatio = screen.width / baseOuterWidth
+    }
+
     flipbook.turn({
       display    : bowser.mobile ? 'single' : 'double',
-      width      : bowser.mobile ? baseOuterWidth : baseOuterWidth * 2,
-      height     : baseOuterHeight * 2,
+      width      : bowser.mobile ? baseOuterWidth * mobileRatio : baseOuterWidth * 2,
+      height     : bowser.mobile ? baseOuterHeight * mobileRatio * 2 : baseOuterHeight * 2,
       elevation  : 50,
       autoCenter : true,
       when       : {

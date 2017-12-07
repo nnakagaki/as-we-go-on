@@ -81,18 +81,18 @@
             <div class="hard">
               <img class="full-height full-width" src="images/yearbook/page1.jpg" />
             </div>
-            <div class="hard front-side"><div class="depth"></div></div>
-            <%- include('partials/page', { pageNum : 3, imageSrc : "" }) %>
+            <div class="js-remove-when-mobile hard front-side"><div class="depth"></div></div>
+            <%- include('partials/page', { pageNum : 3, imageSrc : "", additionalClasses : 'js-remove-when-mobile' }) %>
             <% for (var i = 4; i < 56; i++) { %>
-            <%- include('partials/page', { pageNum : i, imageSrc : "images/yearbook/page"+i+".jpg" }) %>
+            <%- include('partials/page', { pageNum : i, imageSrc : "images/yearbook/page"+i+".jpg", additionalClasses : '' }) %>
             <% } %>
-            <%- include('partials/page', { pageNum : 56, imageSrc : "images/yearbook/pageSigning.jpg" }) %>
-            <%- include('partials/page', { pageNum : 57, imageSrc : "images/yearbook/pageSigning2.jpg" }) %>
-            <%- include('partials/page', { pageNum : 58, imageSrc : "images/yearbook/pageSigning.jpg" }) %>
-            <%- include('partials/page', { pageNum : 59, imageSrc : "images/yearbook/pageSigning2.jpg" }) %>
-            <%- include('partials/page', { pageNum : 60, imageSrc : "images/yearbook/pageSigning.jpg" }) %>
-            <%- include('partials/page', { pageNum : 61, imageSrc : "images/yearbook/pageSigning2.jpg" }) %>
-            <%- include('partials/page', { pageNum : 62, imageSrc : "" }) %>
+            <%- include('partials/page', { pageNum : 56, imageSrc : "images/yearbook/pageSigning.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 57, imageSrc : "images/yearbook/pageSigning2.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 58, imageSrc : "images/yearbook/pageSigning.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 59, imageSrc : "images/yearbook/pageSigning2.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 60, imageSrc : "images/yearbook/pageSigning.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 61, imageSrc : "images/yearbook/pageSigning2.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 62, imageSrc : "", additionalClasses : '' }) %>
             <div class="hard fixed back-side"><div class="depth"></div></div>
             <div class="hard">
               <img class="full-height full-width" src="images/yearbook/pageLast.jpg" />
@@ -109,6 +109,11 @@
     inDrawMode = false;
     loggedIn = false;
     noDoodleMode = false;
+
+    if (bowser.mobile) {
+      $('.js-remove-when-mobile').remove();
+      $('.hard').removeClass('hard');
+    }
 
     <% if (env === 'development') { %>
     ws = new WebSocket('ws://' + window.location.host);
