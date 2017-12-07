@@ -109,7 +109,11 @@
   <script>
     isFullScreen = false;
     inDrawMode = false;
+    <% if (env === 'development') { %>
+    loggedIn = true;
+    <% } else { %>
     loggedIn = false;
+    <% } %>
     noDoodleMode = false;
 
     baseOuterWidth = 440;

@@ -1,4 +1,4 @@
-tool.fixedDistance = 20;
+tool.fixedDistance = 10;
 
 var path;
 var strokeEnds = 6;
