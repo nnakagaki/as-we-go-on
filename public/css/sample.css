@@ -220,3 +220,7 @@ body{
   }
 }
 
+.doodle-login-tooltip {
+  padding: 14px 0;
+  margin-left: 24px;
+}
