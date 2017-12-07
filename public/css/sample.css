@@ -134,6 +134,12 @@ body{
   height: 36px;
 }
 
+@media (min-width: 0) and (max-width: 767px) {
+  .google-signed-in-image {
+    display: none;
+  }
+}
+
 .hamburger {
   position: absolute;
   left: 24px;
