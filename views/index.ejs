@@ -111,8 +111,14 @@
     noDoodleMode = false;
 
     if (bowser.mobile) {
+      mobileRatio = screen.width / baseOuterWidth
       $('.js-remove-when-mobile').remove();
       $('.hard').removeClass('hard');
+      $('[id^=js-canvas-page-]')
+        .attr('width', baseOuterWidth * mobileRatio)
+        .attr('height', baseOuterHeight * mobileRatio * 2)
+        .width(baseOuterWidth * mobileRatio)
+        .height(baseOuterHeight * mobileRatio * 2);
     }
 
     <% if (env === 'development') { %>

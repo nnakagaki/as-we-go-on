@@ -18,11 +18,6 @@ mainObject = {
     } else {
       mobileRatio = screen.width / baseOuterWidth
       slider.css({ width : screen.width - 40 });
-      $('[id^=js-canvas-page-]')
-        .attr('width', baseOuterWidth * mobileRatio)
-        .attr('height', baseOuterHeight * mobileRatio * 2)
-        .width(baseOuterWidth * mobileRatio)
-        .height(baseOuterHeight * mobileRatio * 2);
     }
 
     updateDepth = function (book, newPage) {
