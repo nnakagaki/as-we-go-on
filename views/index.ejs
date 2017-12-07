@@ -124,7 +124,7 @@
         allStrokes.push(data);
         utils.addStrokesToPageCanvas(data.page);
       } else if (loggedIn && data.profileImage) {
-        $('.js-google-signin').append('<img class="js-google-name-tooltip margin-left-1 google-signed-in-image" data-tooltip-position="bottom right" data-tooltip="' + data.name + '" class="google-signed-in-image" src="' + data.profileImage + '" />')
+        $('.js-google-signin').append('<img class="js-google-name-tooltip margin-left-1 google-signed-in-image" data-google-id="' + data.id + '" data-tooltip-position="bottom right" data-tooltip="' + data.name + '" class="google-signed-in-image" src="' + data.profileImage + '" />')
         _.forEach($('.js-google-name-tooltip'), function(el) {
           new Tooltip({
             target : el
@@ -133,7 +133,7 @@
       } else if (data.alreadyInRoom) {
         data.alreadyInRoom.forEach(function(user) {
           if (user.profileImage) {
-            $('.js-google-signin').append('<img class="js-google-name-tooltip margin-left-1 google-signed-in-image" data-tooltip-position="bottom right" data-tooltip="' + user.name + '" class="google-signed-in-image" src="' + user.profileImage + '" />')
+            $('.js-google-signin').append('<img class="js-google-name-tooltip margin-left-1 google-signed-in-image" data-google-id="' + user.id + '" data-tooltip-position="bottom right" data-tooltip="' + user.name + '" class="google-signed-in-image" src="' + user.profileImage + '" />')
             _.forEach($('.js-google-name-tooltip'), function(el) {
               new Tooltip({
                 target : el
@@ -142,7 +142,7 @@
           }
         });
       } else if (data.removeUser) {
-        $('[data-tooltip=' + data.removeUser + ']').remove();
+        $('[data-google-id=' + data.removeUser + ']').remove();
       }
     };
 

@@ -89,6 +89,7 @@ wss.on('connection', function connection(ws, req) {
     if (parsedMessage.profileImage) {
       ws.profileImage = parsedMessage.profileImage;
       ws.googleName = parsedMessage.name;
+      ws.googleId = parsedMessage.id
     }
 
     wss.clients.forEach(function each(client) {
@@ -101,7 +102,7 @@ wss.on('connection', function connection(ws, req) {
   ws.on('close', function close() {
     wss.clients.forEach(function each(client) {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify({ removeUser : ws.googleName }));
+        client.send(JSON.stringify({ removeUser : ws.googleId }));
       }
     });
   });
@@ -112,7 +113,8 @@ wss.on('connection', function connection(ws, req) {
     if (client !== ws) {
       alreadyInRoom.push({
         profileImage : client.profileImage,
-        name         : client.googleName
+        name         : client.googleName,
+        id           : client.googleId
       });
     }
   });

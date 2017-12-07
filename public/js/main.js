@@ -201,7 +201,7 @@ mainObject = {
 
     onSignIn = function(googleUser) {
       var profile = googleUser.getBasicProfile();
-      $('.js-google-signin').prepend('<img class="js-google-name-tooltip google-signed-in-image" data-tooltip-position="bottom right" data-tooltip="' + profile.getName() + '" src="' + profile.getImageUrl() + '" />');
+      $('.js-google-signin').prepend('<img class="js-google-name-tooltip google-signed-in-image" data-google-id="' + profile.getId() + '" data-tooltip-position="bottom right" data-tooltip="' + profile.getName() + '" src="' + profile.getImageUrl() + '" />');
       $('.js-google-signin-button').addClass('is-hidden').removeClass('inline-block');
       console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
       console.log('Name: ' + profile.getName());
@@ -212,7 +212,11 @@ mainObject = {
           target : el
         });
       });
-      ws.send(JSON.stringify({ name : profile.getName(), profileImage : profile.getImageUrl() }));
+      ws.send(JSON.stringify({
+        id           : profile.getId(),
+        name         : profile.getName(),
+        profileImage : profile.getImageUrl()
+      }));
       loggedIn = true;
       $('.js-draw').removeClass('is-disabled');
       doodleLoginTooltip.destroy();
