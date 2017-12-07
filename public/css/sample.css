@@ -138,6 +138,7 @@ body{
   position: absolute;
   left: 24px;
   top: 20px;
+  z-index: 3;
 }
 
 .close-sidebar {
