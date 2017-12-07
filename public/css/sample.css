@@ -127,7 +127,7 @@ body{
 .google-signin {
   position: absolute;
   top: 0;
-  right: 24px;
+  right: 0;
 }
 
 .google-signed-in-image {
@@ -203,3 +203,16 @@ body{
   right: 0;
   z-index: 1;
 }
+
+.yb-top-nav {
+  position: relative;
+  margin: 16px 24px 32px;
+  text-align: center;
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+  .yb-top-nav {
+    text-align: left;
+  }
+}
+
