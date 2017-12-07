@@ -267,5 +267,10 @@ mainObject = {
 
     $('.js-hide-doodle').on('click', hideDoodles);
     $('.js-show-doodle').on('click', showDoodles);
+
+    var zoomWrapHammer = new Hammer(zoomWrap[0]);
+    zoomWrapHammer.on('swipe', function(e) {
+      console.log(e);
+    });
   }
 }
