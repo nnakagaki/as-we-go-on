@@ -269,8 +269,11 @@ mainObject = {
     $('.js-show-doodle').on('click', showDoodles);
 
     var zoomWrapHammer = new Hammer(zoomWrap[0]);
-    zoomWrapHammer.on('swipe', function(e) {
-      console.log(e);
+    zoomWrapHammer.on('swiperight', function() {
+      flipbook.turn('previous');
+    });
+    zoomWrapHammer.on('swipeleft', function() {
+      flipbook.turn("next");
     });
   }
 }
