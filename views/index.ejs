@@ -103,7 +103,7 @@
         </div>
       </div>
       <div id="js-slider" class="page-slider margin-top-4 margin-bottom-6"></div>
-      <div class="margin-bottom-6 text-center">
+      <div class="js-download-tooltip margin-bottom-6 text-center" data-tooltip-position="bottom center" data-tooltip="Please sign in to download PDF!">
         <a class="js-download-pdf button is-disabled" href="/pdf/yearbook.pdf" download>Download PDF</a>
       </div>
       <%- include('partials/privacyPolicy') %>
@@ -189,6 +189,9 @@
     });
     doodleLoginTooltip = new Tooltip({
       target : $('.js-doodle-login-tooltip')[0]
+    });
+    downloadTooltip = new Tooltip({
+      target : $('.js-download-tooltip')[0]
     });
   </script>
   <script type="text/paperscript" src="js/canvas.js" canvas="js-left-canvas"></script>

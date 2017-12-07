@@ -215,6 +215,7 @@ mainObject = {
       $('.js-draw').removeClass('is-disabled');
       $('.js-download-pdf').removeClass('is-disabled');
       doodleLoginTooltip.destroy();
+      downloadTooltip.destroy();
     }
 
     enterDrawMode = function() {
