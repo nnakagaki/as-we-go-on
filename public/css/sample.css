@@ -3,13 +3,13 @@ body{
   overflow:hidden;
 }
 
+.flipbook-wrap.draw-mode {
+  cursor: url(/images/brush.png), auto;
+}
+
 .flipbook{
   width: 880px;
   height: 614px;
-}
-
-.flipbook.draw-mode {
-  cursor: url(/images/brush.png), auto;
 }
 
 .flipbook .page{
