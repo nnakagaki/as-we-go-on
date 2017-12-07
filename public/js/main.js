@@ -224,6 +224,7 @@ mainObject = {
         $('#js-right-canvas').removeClass('is-hidden');
         $('.js-flip').removeClass('is-hidden');
         $('.js-draw').addClass('is-hidden');
+        $('.js-doodle-login-tooltip').addClass('is-hidden');
         inDrawMode = true;
       }
     }
@@ -235,6 +236,7 @@ mainObject = {
       $('#js-right-canvas').addClass('is-hidden');
       $('.js-flip').addClass('is-hidden');
       $('.js-draw').removeClass('is-hidden');
+      $('.js-doodle-login-tooltip').removeClass('is-hidden');
       inDrawMode = false;
     }
 
