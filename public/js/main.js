@@ -11,11 +11,15 @@ mainObject = {
     flipbook = $("#js-flipbook");
     slider = $('#js-slider');
 
+
     if (!bowser.mobile) {
       zoomWrap.css({ width : baseOuterWidth * 2 });
       slider.css({ width : baseOuterWidth });
     } else {
+      mobileRatio = screen.width / baseOuterWidth
       slider.css({ width : screen.width - 40 });
+      $('[id^=js-canvas-page-]').attr('width', baseOuterWidth * mobileRatio);
+      $('[id^=js-canvas-page-]').attr('height', baseOuterHeight * mobileRatio * 2);
     }
 
     updateDepth = function (book, newPage) {
@@ -57,10 +61,6 @@ mainObject = {
       } else {
         $('.back-side .depth').css({ width: 0 });
       }
-    }
-
-    if (bowser.mobile) {
-      mobileRatio = screen.width / baseOuterWidth
     }
 
     flipbook.turn({
