@@ -110,6 +110,13 @@
     loggedIn = false;
     noDoodleMode = false;
 
+    baseOuterWidth = 440;
+    baseOuterHeight = 307;
+    baseInnerWidth = 420;
+    baseInnerHeight = 297;
+    currentOuterWidth = baseOuterWidth * 2;
+    currentOuterHeight = baseOuterHeight * 2;
+
     if (bowser.mobile) {
       mobileRatio = screen.width / baseOuterWidth
       $('.js-remove-when-mobile').remove();

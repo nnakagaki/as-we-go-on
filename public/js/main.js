@@ -1,16 +1,8 @@
 mainObject = {
   initialize : function() {
-    baseOuterWidth = 440;
-    baseOuterHeight = 307;
-    baseInnerWidth = 420;
-    baseInnerHeight = 297;
-    currentOuterWidth = baseOuterWidth * 2;
-    currentOuterHeight = baseOuterHeight * 2;
-
     zoomWrap = $('#js-zoom-wrap');
     flipbook = $("#js-flipbook");
     slider = $('#js-slider');
-
 
     if (!bowser.mobile) {
       zoomWrap.css({ width : baseOuterWidth * 2 });
