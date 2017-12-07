@@ -200,7 +200,7 @@ mainObject = {
     onSignIn = function(googleUser) {
       var profile = googleUser.getBasicProfile();
       $('.js-google-signin').prepend('<img class="js-google-name-tooltip google-signed-in-image" data-google-id="' + profile.getId() + '" data-tooltip-position="bottom right" data-tooltip="' + profile.getName() + '" src="' + profile.getImageUrl() + '" />');
-      $('.js-google-signin-button').addClass('is-hidden');
+      $('.js-google-signin-button').addClass('is-hidden').removeClass('inline-block');
       _.forEach($('.js-google-name-tooltip'), function(el) {
         new Tooltip({
           target : el
