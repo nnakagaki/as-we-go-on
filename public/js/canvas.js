@@ -1,7 +1,7 @@
-tool.fixedDistance = 10;
+tool.fixedDistance = 5;
 
 var path;
-var strokeEnds = 6;
+var strokeEnds = 20;
 
 function onMouseDown(event) {
   path = new Path();
