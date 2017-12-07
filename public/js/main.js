@@ -37,13 +37,13 @@ mainObject = {
         });
       } else {
         $('.front-side .depth').css({ width: 0 });
-        if (isFullScreen) {
-          depthWidth = 16 * Math.min(1, (pages - page) * 2 / pages);
-        } else {
-          depthWidth = 25 * Math.min(1, (pages - page) * 2 / pages);
-        }
       }
 
+      if (isFullScreen) {
+        depthWidth = 25 * Math.min(1, (pages - page) * 2 / pages);
+      } else {
+        depthWidth = 16 * Math.min(1, (pages - page) * 2 / pages);
+      }
 
       if (newPage < pages - 3) {
         $('.back-side .depth').css({
