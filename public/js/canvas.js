@@ -73,6 +73,9 @@ function onMouseUp(event) {
       allStrokes.push(strokeData);
       utils.addStrokesToPageCanvas(currentPage);
       ws.send(JSON.stringify(strokeData));
+    },
+    complete : function() {
+      paper.project.clear();
     }
   });
 }
