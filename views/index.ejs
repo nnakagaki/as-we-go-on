@@ -64,7 +64,9 @@
       </div>
       <div class="text-center margin-bottom-5">
         <button class="js-fullscreen button">FULLSCREEN</button>
-        <button class="js-draw button">DOODLE</button>
+        <div class="js-doodle-login-tooltip inline-block margin-left-3" data-tooltip-position="bottom center" data-tooltip="Please sign in to doodle!">
+          <button class="js-draw button is-disabled">DOODLE</button>
+        </div>
         <button class="js-flip button is-hidden">STOP DOODLING</button>
         <button class="js-hide-doodle button">HIDE DOODLES</button>
         <button class="js-show-doodle button is-hidden">SHOW DOODLES</button>
@@ -118,8 +120,10 @@
         allStrokes.push(data);
         utils.addStrokesToPageCanvas(data.page);
       } else if (loggedIn && data.profileImage) {
-        $('.js-google-signin').append('<img class="margin-left-1 google-signed-in-image" data-tooltip-position="bottom right" data-tooltip="' + data.name + '" class="google-signed-in-image" src="' + data.profileImage + '" />')
-        Tooltip.init();
+        $('.js-google-signin').append('<img class="js-google-name-tooltip margin-left-1 google-signed-in-image" data-tooltip-position="bottom right" data-tooltip="' + data.name + '" class="google-signed-in-image" src="' + data.profileImage + '" />')
+        new Tooltip({
+          target : $('.js-doodle-login-tooltip')[0]
+        });
       }
     };
 
@@ -137,7 +141,9 @@
         $('#js-zoom-wrap').removeClass('is-hidden');
       }
     });
-    Tooltip.init();
+    doodleLoginTooltip = new Tooltip({
+      target : $('.js-doodle-login-tooltip')[0]
+    });
   </script>
   <script type="text/paperscript" src="js/canvas.js" canvas="js-left-canvas"></script>
   <script type="text/paperscript" src="js/canvas.js" canvas="js-right-canvas"></script>
