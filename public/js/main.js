@@ -213,6 +213,7 @@ mainObject = {
       }));
       loggedIn = true;
       $('.js-draw').removeClass('is-disabled');
+      $('.js-download-pdf').removeClass('is-disabled');
       doodleLoginTooltip.destroy();
     }
 
