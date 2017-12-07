@@ -84,6 +84,13 @@ const wss = new WebSocket.Server({ server });
 
 wss.on('connection', function connection(ws, req) {
   ws.on('message', function incoming(message) {
+    var parsedMessage = JSON.parse(message);
+
+    if (parsedMessage.profileImage) {
+      ws.profileImage = parsedMessage.profileImage;
+      ws.googleName = parsedMessage.name;
+    }
+
     wss.clients.forEach(function each(client) {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
         client.send(message);
@@ -91,9 +98,16 @@ wss.on('connection', function connection(ws, req) {
     });
   });
 
+  var alreadyInRoom = [];
+
   wss.clients.forEach(function each(client) {
-    if (client !== ws && client.readyState === WebSocket.OPEN) {
-      client.send(JSON.stringify({ work : 's??' }));
+    if (client !== ws) {
+      alreadyInRoom.push({
+        profileImage : client.profileImage,
+        name         : client.googleName
+      });
     }
   });
+
+  ws.send(JSON.stringify(alreadyInRoom));
 });

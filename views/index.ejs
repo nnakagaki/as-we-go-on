@@ -106,6 +106,10 @@
     </div>
   </body>
   <script>
+    inDrawMode = false;
+    loggedIn = false;
+    noDoodleMode = false;
+
     <% if (env === 'development') { %>
     ws = new WebSocket('ws://' + window.location.host);
     <% } else { %>
@@ -127,6 +131,8 @@
           });
         });
       }
+
+      console.log(data)
     };
 
     $.ajax({

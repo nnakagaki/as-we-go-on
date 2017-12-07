@@ -8,10 +8,6 @@ mainObject = {
     currentOuterWidth = baseOuterWidth * 2;
     currentOuterHeight = baseOuterHeight * 2;
 
-    inDrawMode = false;
-    loggedIn = false;
-    noDoodleMode = false;
-
     zoomWrap = $('#js-zoom-wrap');
     flipbook = $("#js-flipbook");
     slider = $('#js-slider');
