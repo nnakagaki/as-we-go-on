@@ -11,7 +11,9 @@ mainObject = {
     flipbook = $("#js-flipbook");
     slider = $('#js-slider');
 
-    zoomWrap.css({ width : baseOuterWidth * 2 });
+    if (!bowser.mobile) {
+      zoomWrap.css({ width : baseOuterWidth * 2 });
+    }
     slider.css({ width : baseOuterWidth });
 
     updateDepth = function (book, newPage) {
@@ -56,7 +58,8 @@ mainObject = {
     }
 
     flipbook.turn({
-      width      : baseOuterWidth * 2,
+      display    : bowser.mobile ? 'single' : 'double',
+      width      : bowser.mobile ? baseOuterWidth : baseOuterWidth * 2,
       height     : baseOuterHeight * 2,
       elevation  : 50,
       autoCenter : true,
