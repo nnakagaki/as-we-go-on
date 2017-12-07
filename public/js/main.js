@@ -202,7 +202,7 @@ mainObject = {
     onSignIn = function(googleUser) {
       var profile = googleUser.getBasicProfile();
       $('.js-google-signin').prepend('<img class="js-google-name-tooltip google-signed-in-image" data-tooltip-position="bottom right" data-tooltip="' + profile.getName() + '" src="' + profile.getImageUrl() + '" />');
-      $('.js-google-signin-button').addClass('is-hidden');
+      $('.js-google-signin-button').addClass('is-hidden').removeClass('inline-block');
       console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
       console.log('Name: ' + profile.getName());
       console.log('Image URL: ' + profile.getImageUrl());
