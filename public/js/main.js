@@ -222,7 +222,7 @@ mainObject = {
 
     enterDrawMode = function() {
       if (loggedIn) {
-        flipbook.turn('disable', true);
+        flipbook.turn('disable', true).addClass('draw-mode');
         $('#js-left-canvas').removeClass('is-hidden');
         $('#js-right-canvas').removeClass('is-hidden');
         $('.js-flip').removeClass('is-hidden');
@@ -232,7 +232,7 @@ mainObject = {
     }
 
     exitDrawMode = function() {
-      flipbook.turn('disable', false);
+      flipbook.turn('disable', false).removeClass('draw-mode');
       $('#js-left-canvas').addClass('is-hidden');
       $('#js-right-canvas').addClass('is-hidden');
       $('.js-flip').addClass('is-hidden');

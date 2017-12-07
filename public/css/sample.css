@@ -8,6 +8,10 @@ body{
   height: 614px;
 }
 
+.flipbook.draw-mode {
+  cursor: url(/images/brush.png), auto;
+}
+
 .flipbook .page{
   width: 880px;
   height: 614px;
