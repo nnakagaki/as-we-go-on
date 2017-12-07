@@ -109,5 +109,5 @@ wss.on('connection', function connection(ws, req) {
     }
   });
 
-  ws.send(JSON.stringify(alreadyInRoom));
+  ws.send(JSON.stringify({ alreadyInRoom }));
 });
