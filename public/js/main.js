@@ -211,8 +211,10 @@ mainObject = {
       console.log('Name: ' + profile.getName());
       console.log('Image URL: ' + profile.getImageUrl());
       console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-      new Tooltip({
-        target : $('.js-doodle-login-tooltip')[0]
+      _.forEach($('.js-google-name-tooltip'), function(el) {
+        new Tooltip({
+          target : el
+        });
       });
       ws.send(JSON.stringify({ name : profile.getName(), profileImage : profile.getImageUrl() }));
       loggedIn = true;

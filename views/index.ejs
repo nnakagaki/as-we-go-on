@@ -121,8 +121,10 @@
         utils.addStrokesToPageCanvas(data.page);
       } else if (loggedIn && data.profileImage) {
         $('.js-google-signin').append('<img class="js-google-name-tooltip margin-left-1 google-signed-in-image" data-tooltip-position="bottom right" data-tooltip="' + data.name + '" class="google-signed-in-image" src="' + data.profileImage + '" />')
-        new Tooltip({
-          target : $('.js-doodle-login-tooltip')[0]
+        _.forEach($('.js-google-name-tooltip'), function(el) {
+          new Tooltip({
+            target : el
+          });
         });
       }
     };
