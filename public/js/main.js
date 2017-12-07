@@ -223,12 +223,14 @@ mainObject = {
     }
 
     enterDrawMode = function() {
-      flipbook.turn('disable', true);
-      $('#js-left-canvas').removeClass('is-hidden');
-      $('#js-right-canvas').removeClass('is-hidden');
-      $('.js-flip').removeClass('is-hidden');
-      $('.js-draw').addClass('is-hidden');
-      inDrawMode = true;
+      if (loggedIn) {
+        flipbook.turn('disable', true);
+        $('#js-left-canvas').removeClass('is-hidden');
+        $('#js-right-canvas').removeClass('is-hidden');
+        $('.js-flip').removeClass('is-hidden');
+        $('.js-draw').addClass('is-hidden');
+        inDrawMode = true;
+      }
     }
 
     exitDrawMode = function() {
