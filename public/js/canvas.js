@@ -5,11 +5,7 @@ var strokeEnds = 20;
 
 function onMouseDown(event) {
   path = new Path();
-  path.fillColor = {
-    hue: Math.random() * 360,
-    saturation: 1,
-    brightness: 1
-  };
+  path.fillColor = '#' + $('#js-stroke-color').val();
 }
 
 var lastPoint;
