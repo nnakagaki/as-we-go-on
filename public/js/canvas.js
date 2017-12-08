@@ -4,6 +4,7 @@ var path;
 var strokeEnds = 20;
 
 function onMouseDown(event) {
+  tool.fixedDistance = $('#js-stroke-thickness').val();
   path = new Path();
   path.fillColor = '#' + $('#js-stroke-color').val();
 }

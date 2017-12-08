@@ -224,3 +224,11 @@ body{
   padding: 14px 0;
   margin-left: 24px;
 }
+
+.color-input {
+  width: 80px;
+}
+
+.thickness-input {
+  width: 40px;
+}
