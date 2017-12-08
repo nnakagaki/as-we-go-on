@@ -227,6 +227,7 @@ mainObject = {
         $('.js-flip').removeClass('is-hidden');
         $('.js-draw').addClass('is-hidden');
         $('.js-doodle-login-tooltip').addClass('is-hidden');
+        $('.js-stroke-controls').removeClass('is-hidden');
         inDrawMode = true;
       }
     }
@@ -239,6 +240,7 @@ mainObject = {
       $('.js-flip').addClass('is-hidden');
       $('.js-draw').removeClass('is-hidden');
       $('.js-doodle-login-tooltip').removeClass('is-hidden');
+      $('.js-stroke-controls').addClass('is-hidden');
       inDrawMode = false;
     }
 
