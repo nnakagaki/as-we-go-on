@@ -59,6 +59,14 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/myagiEsSuYagi', (req, res) => {
+  res.render('myagiEsSuYagi', {
+    googleClientId : process.env.GOOGLE_CLIENT_ID || 'wontwork',
+    env            : env,
+    mobile         : bowser._detect(req.headers['user-agent']).mobile
+  });
+});
+
 app.get('/strokes', (req, res) => {
   var results;
 

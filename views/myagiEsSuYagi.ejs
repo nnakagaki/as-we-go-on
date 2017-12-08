@@ -24,97 +24,31 @@
     <script type="text/javascript" src="js/utils.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   </head>
-  <body class="container-fluid no-overflow white-background">
-    <div class="js-sidebar yearbook-index-sidebar full-height overflow-auto inverted">
-      <div class="js-toggle-sidebar cursor-pointer close-sidebar">×</div>
-      <div class="h4 label margin-bottom-2">Table of contents</div>
-      <div>
-        <a class="js-go-to-page" data-page="6">I. Letter from the Principal</a>
-      </div>
-      <div>
-        <a class="js-go-to-page" data-page="8">II. Meet the Faculty</a>
-      </div>
-      <div>
-        <a class="js-go-to-page" data-page="10">III. Jason's Corner</a>
-      </div>
-      <div>
-        <a class="js-go-to-page" data-page="12">IV. Senior Photos</a>
-      </div>
-      <div>
-        <a class="js-go-to-page" data-page="30">V. Superlatives</a>
-      </div>
-      <div>
-        <a class="js-go-to-page" data-page="32">V. Interviews</a>
-      </div>
-      <div>
-        <a class="js-go-to-page" data-page="38">VI. Student Life</a>
-      </div>
-      <div>
-        <a class="js-go-to-page" data-page="48">VII. Sports</a>
-      </div>
-      <div>
-        <a class="js-go-to-page" data-page="54">VIII. Who's who?</a>
-      </div>
-      <div>
-        <a class="js-go-to-page" data-page="56">IX. Autographs</a>
-      </div>
-    </div>
+  <body class="container-fluid no-overflow light-grey-background">
     <div class="js-main full-height overflow-auto">
-      <div class="js-toggle-sidebar hamburger cursor-pointer hide-when-sm"></div>
       <div class="h2 yb-top-nav">
         <div class="js-google-signin google-signin">
           <div class="js-google-signin-button inline-block g-signin2" data-onsuccess="onSignIn"></div>
         </div>
         <span class="logo logo-color logo-text gh-logo-img"></span>
       </div>
-      <div class="text-center margin-bottom-3">
-        <button class="js-fullscreen button hide-when-sm">FULLSCREEN</button>
-        <span class="js-doodle-login-tooltip doodle-login-tooltip hide-when-sm" data-tooltip-position="bottom center" data-tooltip="Please sign in to doodle!">
-          <button class="js-draw button is-disabled">DOODLE</button>
-        </span>
-        <button class="js-flip button is-hidden hide-when-sm">STOP DOODLING</button>
-        <button class="js-hide-doodle button">HIDE DOODLES</button>
-        <button class="js-show-doodle button is-hidden">SHOW DOODLES</button>
-      </div>
-      <div class="js-stroke-controls text-center margin-bottom-3 is-hidden">
-        <label for="js-stroke-color">Color: </label>
-        <input id="js-stroke-color" class="jscolor color-input margin-right-2" value="1bcdcf" maxlength="6">
-        <label for="js-stroke-thickness">Thickness: </label>
-        <input id="js-stroke-thickness" class="thickness-input" value="5" maxlength="2">
-      </div>
       <div class="display-flex horizontal-center-flex-container">
         <div id="js-zoom-wrap" class="flipbook-wrap transparent-background make-relative is-hidden">
           <canvas id="js-left-canvas" class="drawing-canvas-1 is-hidden" height="594" width="420"></canvas>
           <canvas id="js-right-canvas" class="drawing-canvas-2 is-hidden" height="594" width="420"></canvas>
           <div id="js-flipbook" class="flipbook">
-            <div class="hard">
-              <img class="full-height full-width" src=<%- mobile ? "/images/yearbook/mobile/page1.jpg" : "/images/yearbook/web/page1.jpg" %> />
-            </div>
-            <div class="js-remove-when-mobile hard front-side"><div class="depth"></div></div>
-            <%- include('partials/page', { pageNum : 3, imageSrc : "", additionalClasses : 'js-remove-when-mobile' }) %>
-            <% for (var i = 4; i < 56; i++) { %>
-            <%- include('partials/page', { pageNum : i, imageSrc : mobile ? "/images/yearbook/mobile/page"+i+".jpg" : "/images/yearbook/web/page"+i+".jpg", additionalClasses : '' }) %>
+            <% for (var i = 1; i < 55; i++) { %>
+            <%- include('partials/page', { pageNum : i, imageSrc : "/images/myagiEsSuYagi/page"+i+".jpg", additionalClasses : '' }) %>
             <% } %>
-            <%- include('partials/page', { pageNum : 56, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning.jpg" : "/images/yearbook/web/pageSigning.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 57, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning2.jpg" : "/images/yearbook/web/pageSigning2.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 58, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning.jpg" : "/images/yearbook/web/pageSigning.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 59, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning2.jpg" : "/images/yearbook/web/pageSigning2.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 60, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning.jpg" : "/images/yearbook/web/pageSigning.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 61, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning2.jpg" : "/images/yearbook/web/pageSigning2.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 62, imageSrc : "", additionalClasses : '' }) %>
-            <div class="hard fixed back-side"><div class="depth"></div></div>
-            <div class="hard">
-              <img class="full-height full-width" src=<%- mobile ? "/images/yearbook/mobile/pageLast.jpg" : "/images/yearbook/web/pageLast.jpg" %> />
-            </div>
           </div>
         </div>
       </div>
       <div id="js-slider" class="page-slider margin-top-4 margin-bottom-6"></div>
       <div class="js-download-tooltip margin-bottom-3 text-center" data-tooltip-position="bottom center" data-tooltip="Please sign in to download PDF!">
-        <a class="js-download-pdf button is-disabled" href="/pdf/yearbook.pdf" download>Download PDF</a>
+        <a class="js-download-pdf button is-disabled" href="/pdf/myagiEsSuYagi.pdf" download>Download PDF</a>
       </div>
       <div class="text-center margin-bottom-6">
-        <a href="/myagiEsSuYagi" class="button button-secondary">Read Myagi Es Su Yagi</a>
+        <a href="/" class="button button-secondary">Read Yearbook</a>
       </div>
       <%- include('partials/privacyPolicy') %>
     </div>

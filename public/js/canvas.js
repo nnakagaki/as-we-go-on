@@ -25,7 +25,6 @@ function onMouseDrag(event) {
     path.add(top);
     path.insert(0, bottom);
   }
-  // path.smooth();
 
   lastPoint = event.middlePoint;
 }
