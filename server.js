@@ -8,10 +8,10 @@ const port = process.env.PORT || 3000;
 const mysql = require('mysql');
 const bowser = require('bowser');
 const dbConfig = {
-  host     : process.env.DB_HOST,
-  user     : process.env.DB_USERNAME,
-  password : process.env.DB_PASSWORD,
-  database : process.env.DB_DATABASE
+  host     : 'us-cdbr-iron-east-05.cleardb.net',
+  user     : 'b8770757c38c73',
+  password : '2b948dc3',
+  database : 'heroku_82c2a247bb89752'
 };
 const env = process.env.NODE_ENV || 'development';
 

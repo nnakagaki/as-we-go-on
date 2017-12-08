@@ -173,6 +173,10 @@ mainObject = {
       zoomWrap.css({ width: newOuterWidth });
       flipbook.turn('size', newOuterWidth, newHeight);
       req.call(zoomWrap[0]);
+      $('[id^=js-canvas-page-]').css({
+        width  : newInnerWidth / 2,
+        height : newInnerHeight
+      });
     });
 
     onFullscreenChangeHandler = function() {
@@ -184,8 +188,12 @@ mainObject = {
         });
         $('.depth').css({
           height : 604
-        })
+        });
         flipbook.turn('size', currentOuterWidth, currentOuterHeight);
+        $('[id^=js-canvas-page-]').css({
+          width  : baseInnerWidth,
+          height : baseInnerHeight * 2
+        });
         isFullScreen = false;
       } else {
         isFullScreen = true;
