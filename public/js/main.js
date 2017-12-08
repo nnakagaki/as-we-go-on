@@ -289,5 +289,8 @@ mainObject = {
     zoomWrapHammer.on('swipeleft', function() {
       flipbook.turn("next");
     });
+    new Hammer($(document)[0]).on('swipe', function(e) {
+      e.preventDefault();
+    });
   }
 }
