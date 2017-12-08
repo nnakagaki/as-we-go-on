@@ -88,19 +88,19 @@
           <canvas id="js-right-canvas" class="drawing-canvas-2 is-hidden" height="594" width="420"></canvas>
           <div id="js-flipbook" class="flipbook">
             <div class="hard">
-              <img class="full-height full-width" src="/images/yearbook/page1.jpg" />
+              <img class="full-height full-width" src=<%- mobile ? "/images/yearbook/mobile/page1.jpg" : "/images/yearbook/web/page1.jpg" %> />
             </div>
             <div class="js-remove-when-mobile hard front-side"><div class="depth"></div></div>
             <%- include('partials/page', { pageNum : 3, imageSrc : "", additionalClasses : 'js-remove-when-mobile' }) %>
             <% for (var i = 4; i < 56; i++) { %>
-            <%- include('partials/page', { pageNum : i, imageSrc : "/images/yearbook/page"+i+".jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : i, imageSrc : mobile ? "/images/yearbook/mobile/page"+i+".jpg" : "/images/yearbook/web/page"+i+".jpg", additionalClasses : '' }) %>
             <% } %>
-            <%- include('partials/page', { pageNum : 56, imageSrc : "/images/yearbook/pageSigning.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 57, imageSrc : "/images/yearbook/pageSigning2.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 58, imageSrc : "/images/yearbook/pageSigning.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 59, imageSrc : "/images/yearbook/pageSigning2.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 60, imageSrc : "/images/yearbook/pageSigning.jpg", additionalClasses : '' }) %>
-            <%- include('partials/page', { pageNum : 61, imageSrc : "/images/yearbook/pageSigning2.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 56, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning.jpg" : "/images/yearbook/web/pageSigning.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 57, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning2.jpg" : "/images/yearbook/web/pageSigning2.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 58, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning.jpg" : "/images/yearbook/web/pageSigning.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 59, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning2.jpg" : "/images/yearbook/web/pageSigning2.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 60, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning.jpg" : "/images/yearbook/web/pageSigning.jpg", additionalClasses : '' }) %>
+            <%- include('partials/page', { pageNum : 61, imageSrc : mobile ? "/images/yearbook/mobile/pageSigning2.jpg" : "/images/yearbook/web/pageSigning2.jpg", additionalClasses : '' }) %>
             <%- include('partials/page', { pageNum : 62, imageSrc : "", additionalClasses : '' }) %>
             <div class="hard fixed back-side"><div class="depth"></div></div>
             <div class="hard">

@@ -6,6 +6,7 @@ const app = express();
 const WebSocket = require('ws');
 const port = process.env.PORT || 3000;
 const mysql = require('mysql');
+const bowser = require('bowser');
 const dbConfig = {
   host     : process.env.DB_HOST,
   user     : process.env.DB_USERNAME,
@@ -48,7 +49,8 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
   res.render('index', {
     googleClientId : process.env.GOOGLE_CLIENT_ID || 'wontwork',
-    env            : env
+    env            : env,
+    mobile         : bowser._detect(req.headers['user-agent']).mobile
   });
 });
 
