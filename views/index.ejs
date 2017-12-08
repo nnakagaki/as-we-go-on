@@ -104,7 +104,7 @@
             <%- include('partials/page', { pageNum : 62, imageSrc : "", additionalClasses : '' }) %>
             <div class="hard fixed back-side"><div class="depth"></div></div>
             <div class="hard">
-              <img class="full-height full-width" src="/images/yearbook/pageLast.jpg" />
+              <img class="full-height full-width" src=<%- mobile ? "/images/yearbook/mobile/pageLast.jpg" : "/images/yearbook/web/pageLast.jpg" %> />
             </div>
           </div>
         </div>
